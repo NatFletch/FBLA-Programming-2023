@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/NatFletch/FBLA-Programming-2023#readme",
   "devDependencies": {
-    "electron": "^21.3.0"
+    "electron": "^6.1.12"
   }
 }

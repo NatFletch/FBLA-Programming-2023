@@ -1,3 +1,7 @@
 body {
     background-color: #36393f;
 }
+
+.topbar button:hover{
+    background-color:white;
+}
