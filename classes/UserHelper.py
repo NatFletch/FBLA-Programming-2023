@@ -12,7 +12,7 @@ class LoginManager():
             is_teacher: false
         }}
         """.format(name, password)
-        print(name, password)
+
         if not name or password is None:
             return print("You forgot to add a name or a password")
         
