@@ -2,6 +2,28 @@ body {
     background-color: #36393f;
 }
 
+h3 {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+p {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+button {
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+span {
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
 .topbar button:hover{
     background-color:white;
 }
