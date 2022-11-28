@@ -2,6 +2,12 @@ body {
     background-color: #36393f;
 }
 
+h1 {
+    font-family: Verdana;
+    color: white;
+    text-align: center;
+}
+
 h3 {
     padding-left: 10px;
     padding-right: 10px
@@ -10,19 +16,6 @@ h3 {
 p {
     padding-left: 10px;
     padding-right: 10px
-}
-
-button {
-    -webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-    border-style: none;
-}
-
-span {
-    -webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
 }
 
 a {
@@ -38,9 +31,3 @@ a {
     color: rgb(255, 255, 255);
     text-align: center;
 }
-
-.topbar button:hover{
-    background-color:white;
-}
-
-button:active { border-style: outset;}

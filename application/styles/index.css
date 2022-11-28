@@ -1,0 +1,35 @@
+.topbar {
+    background-color: #27292e;
+    height:75px;
+    width: 99%;
+}
+
+.topbar h1{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.topbar a{
+    background-color: #27292e; 
+    font-family: Verdana; 
+    float: right; 
+    color:aliceblue; 
+    font-size: 20px; 
+    margin-top:37.5px; 
+    margin-right: 5px;
+}
+
+.divder {
+    padding: 5px 5px;
+}
+
+.sample-event {
+    font-family: Verdana;
+    color: white; 
+    background-color: #27292e; 
+    padding-top:5px; 
+    padding-bottom: 5px; 
+    width:99%; 
+    border-style: double;
+}
