@@ -1,0 +1,31 @@
+label {
+    display: inline-block;
+    text-align: center;
+    font-family: Verdana;
+    color: white;
+    font-size: 18px;
+}
+
+button {
+    font-family: Verdana;
+    font-size: auto;
+}
+
+.login-box {
+    margin-top: 2.5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 200px;
+    position: relative;
+}
+
+.vertical-center {
+    display: inline-block;
+    text-align: right;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
