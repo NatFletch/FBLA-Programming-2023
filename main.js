@@ -7,8 +7,10 @@ const createWindow = () => {
     })
     win.setMenu(null);
     win.loadFile('./application/index.html');
+
 }
 
 app.whenReady().then(() => {
+    app.commandLine.appendSwitch('no-sandbox');
     createWindow();
 })
