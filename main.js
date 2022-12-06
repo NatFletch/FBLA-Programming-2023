@@ -3,7 +3,7 @@ const cp = require("child_process");
 const util = require("util");
 const fs = require("fs");
 const path = require("path")
-const execFile = util.promisify(cp.execFile);
+const execFileSync = util.promisify(cp.execFile);
 
 function findPython() {
   const possibilities = [
