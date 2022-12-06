@@ -17,7 +17,17 @@
                 <input type="text" id="username" name="username"><br><br>
                 <label for="password">Password: </label>
                 <input type="text" id="password" name="password"><br><br>
-                <button>Log In</button><br><br>
+                <button onclick="login()">Log In</button><br><br>
+                <script>
+                    function login(){
+                        const cp = require("child_process");
+                        const util = require("util");
+
+                        const execFileSync = util.promisify(cp.execFile);
+                        
+                        execFileSync(".../scripts/login.py")
+                    }
+                </script>
                 <a style="float: right;" href="./index.html">Back to Home</a>
             </div>
         </div>
