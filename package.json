@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My programming project for the 2023 FBLA season.",
   "main": "main.js",
-  "devDependencies": {},
+  "devDependencies": {"electron": "22.0.0"},
 
   "scripts": {
     "start": "electron .",
