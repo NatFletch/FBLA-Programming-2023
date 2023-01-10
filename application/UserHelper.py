@@ -1,5 +1,5 @@
 import json
-
+import os
 
 class LoginManager():        
     def register_user(self, name, password):
@@ -24,18 +24,25 @@ class LoginManager():
         if name.lower() == "example" or "none":
             return print(f"{name} is not allowed!")
         
-        user_file = open("../users/{0}".format(name.lower())+".json", "a")
+        user_file = open("./users/{0}".format(name.lower())+".json", "a")
         user_file.write(data_template)
         
         user_file.close()
         
         return print("Registered successfully!")
         
-    def login_user(self, name, password):
+    def login_user(self, name=None, password=None):
         m_user = User(name)
+        print(name)
+        print(os.listdir("./"))
+        if password == "":
+            return print('You did not enter a username or a password')
         
-        if not m_user.get_user_info():
-            return print("Incorrect username or password")
+        if name == "":
+            return print('You did not enter a username or a password')
+        
+        if m_user.get_user_info() is False:
+            return print("User not found")
         
         if m_user.get_user_password() != password:
             return print("Incorrect username or password")
@@ -56,8 +63,10 @@ class User:
         self.name = name
 
     def get_user_info(self):
+        print('trying')
         try:
-            file = open("../users/{0}".format(self.name)+".json", "r")
+            file = open(f"./users/{self.name}.json", "r")
+            print('found file')
             file_data = json.load(file)
             file.close()
         except FileNotFoundError:

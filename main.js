@@ -13,3 +13,9 @@ app.whenReady().then(() => {
     app.commandLine.appendSwitch('no-sandbox');
     createWindow();
 })
+
+app.on('certificate-error', function(event, webContents, url, error, 
+    certificate, callback) {
+        event.preventDefault();
+        callback(true);
+  });

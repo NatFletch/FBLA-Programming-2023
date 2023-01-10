@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="./styles/login.css">
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-
         <py-config>
             [splashscreen]
             autoclose = true
@@ -30,12 +29,13 @@
                 <input type="text" id="password" name="password"><br><br>
 
                 <py-script>
-                    import UserHelper
+                    from UserHelper import LoginManager, User
 
-                    mLoginManager = UserHelper.LoginManager()
+                    mLoginManager = LoginManager()
 
                     def onLoginClick():
-                        LoginManager.loginUser()
+                        print(js.document.getElementById("username").value)
+                        mLoginManager.login_user(js.document.getElementById("username").value, js.document.getElementById("password").value)
                 </py-script>
 
                 <button id="login" py-onClick="onLoginClick()" type="button">Log In</button><br><br>

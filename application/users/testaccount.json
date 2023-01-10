@@ -1,0 +1,7 @@
+{
+    "name": "testaccount",
+    "password": "password",
+    "points": 1000,
+    "attended_events": 20,
+    "is_teacher": true
+}
