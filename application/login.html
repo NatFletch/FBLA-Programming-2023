@@ -5,15 +5,6 @@
         <title>Log In</title>
         <link rel="stylesheet" href="./styles/default.css">
         <link rel="stylesheet" href="./styles/login.css">
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <py-config>
-            [splashscreen]
-            autoclose = true
-
-            [[fetch]]
-            files = ["./TeacherHelper.py", "./UserHelper.py"]
-        </py-config>
 
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
@@ -28,17 +19,11 @@
                 <label for="password">Password: </label>
                 <input type="text" id="password" name="password"><br><br>
 
-                <py-script>
-                    from UserHelper import LoginManager, User
+                <script>
+                    const fs = require('fs')
+                </script>
 
-                    mLoginManager = LoginManager()
-
-                    def onLoginClick():
-                        print(js.document.getElementById("username").value)
-                        mLoginManager.login_user(js.document.getElementById("username").value, js.document.getElementById("password").value)
-                </py-script>
-
-                <button id="login" py-onClick="onLoginClick()" type="button">Log In</button><br><br>
+                <button id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
 
                 <a style="float: right;" href="./index.html">Back to Home</a>
             </div>
