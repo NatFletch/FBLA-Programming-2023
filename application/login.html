@@ -17,10 +17,53 @@
                 <label for="username">Username: </label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="password">Password: </label>
-                <input type="text" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password"><br><br>
 
                 <script>
-                    const fs = require('fs')
+                    function onLoginClick(){
+                        const fs = require('fs')
+                        const username = document.getElementById("username").value
+                        const password = document.getElementById("password").value
+                        
+                        const logged_in_string = {
+                            "name": username
+                        }
+                        const logged_in_json = JSON.stringify(logged_in_string)
+
+                        if(username == null && password != null){
+                            console.log('jaming')
+                            return "Please provide a username"
+                        } else if(password == null && username != null ){
+                            console.log('jaming2')
+                            return "Please provide a password"
+                        } else if (username == null && password == null){
+                            console.log('jaming3')
+                            return "Please enter a username and password"
+                        }
+
+                        fs.readFile('./data/users/' + username + '.json', 'utf8', (error, json_string) => {
+                        if(!error){
+                            console.log("Success: ", json_string);
+                            const data = JSON.parse(json_string);
+
+                            if(password == data.password){
+                                fs.writeFile('./logged_in.json', logged_in_json, err => {
+                                if (err) {
+                                    console.log('Error while writing file', err)
+                                    return
+                                } else {
+                                    console.log('Success logging in!')
+                                    window.location.replace("./index.html")
+                                    return
+                                }
+                            })
+                            return;
+                            }
+                        }
+                        
+                        console.log("Error while reading file: ", error)
+                    });
+                    }
                 </script>
 
                 <button id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
