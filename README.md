@@ -6,4 +6,4 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
 # Installation and usage
  - Coming soon
 
-Please note that this project is still very much in its early stages and I work at my own pace and this is a pretty big learning curve for me
+I realized that using Python and HTML sounds good on paper but unfortunately a lot of frameworks are limiting my capabilities so I decided to go back to plain old javascript. Therefore a new branch was created called "experimental" in case if I need to switch back. For context the reason why I started off trying Python is because I didn't know very much JS at the time but now I feel confident in using JS so I am switching to that.
