@@ -24,20 +24,12 @@
                         const fs = require('fs')
                         const username = document.getElementById("username").value
                         const password = document.getElementById("password").value
-                        
-                        const logged_in_string = {
-                            "name": username
-                        }
-                        const logged_in_json = JSON.stringify(logged_in_string)
 
                         if(username == null && password != null){
-                            console.log('jaming')
                             return "Please provide a username"
                         } else if(password == null && username != null ){
-                            console.log('jaming2')
                             return "Please provide a password"
                         } else if (username == null && password == null){
-                            console.log('jaming3')
                             return "Please enter a username and password"
                         }
 
@@ -45,6 +37,12 @@
                         if(!error){
                             console.log("Success: ", json_string);
                             const data = JSON.parse(json_string);
+
+                            const logged_in_string = {
+                                "name": username,
+                                "is_teacher": data.is_teacher
+                            }
+                            const logged_in_json = JSON.stringify(logged_in_string)
 
                             if(password == data.password){
                                 fs.writeFile('./logged_in.json', logged_in_json, err => {

@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <title>Smithville Attendance</title>
-
         <link rel="stylesheet" href="./styles/default-dark.css">
         <link rel="stylesheet" href="./styles/index.css">
 
@@ -21,11 +20,40 @@
 
         </div>
         <div class="sample-event">
-            <h3>Event Title</h3>
+            <h3 id="title">Event Title</h3>
             <hr>
-            <p>Location: </p>
-            <p>Time: 0:00am - 0:00pm:</p>
+            <p id="location">Location: </p>
+            <p id="time">Time: 0:00am - 0:00pm:</p>
+            <p id ="description">Description: None</p>
         </div>
+
+        <a id="eventadd" href="javascript:void(0)">New Event</a>
+
+        <script type="text/javascript">
+            require('jQuery')(document).ready(function($){
+                const fs = require('fs')
+    
+                const title = $('#title')
+                const location = $('#location')
+                const time = $('#time')
+                const description = $('#description')
+    
+                fs.readFile('./data/events.json', 'utf8', (error, json_string) => {
+                    const data = JSON.parse(json_string)
+                    console.log(json_string)
+                    
+                    Object.entries(data).forEach((entry) => {
+                        const [key, value] = entry;
+                        if(key == "event1"){
+                            title.html(value.name)
+                            location.html("Location: " + value.location)
+                            time.html("Time: " + value.time)
+                            description.html("Description: " + value.description)
+                        }
+                      });
+                })
+            })
+        </script>
 
         <div class="footer">
             <p>Nathan Fletcher 2022-2023</p>
