@@ -11,3 +11,14 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  - Run `npm install` to install all neccessary project dependencies
  - Run `git checkout experimental` to switch to this branch
  - Start the program via `npm start`
+Please dont make fun of my application its still very early development
+
+# TODO
+THere is a lot of stuff I still need to finish up on
+ - The ability to post a new event
+ - The ability to find students and give them points
+ - Required UI FBLA wants me to use
+ - Reports at the end of each quarter
+ - A store
+
+A second todo list will come out whenever I finish the general todo list
