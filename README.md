@@ -7,6 +7,17 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  ```https://github.com/NatFletch/FBLA-Programming-2023.git```
  - Download and install Node.js
  - CD into source directory
- - Run `git checkout experimental` so you can switch into the `experimental` branch
  - Run `npm install` to install all neccessary project dependencies
  - Start the program via `npm start`
+ 
+Coming Soon
+
+# TODO
+THere is a lot of stuff I still need to finish up on
+ - The ability to post a new event
+ - The ability to find students and give them points
+ - Required UI FBLA wants me to use
+ - Reports at the end of each quarter
+ - A store
+
+A second todo list will come out whenever I finish the general todo list
