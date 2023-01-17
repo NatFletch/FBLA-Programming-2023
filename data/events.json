@@ -1,8 +1,8 @@
 {
     "event1":{
-        "name": "fortnite Game",
+        "name": "Placeholder game",
         "time": "7:00pm - ~8:30pm",
-        "location": "john wick Football Field",
-        "description": "Boys Varsity football against Kearney Varisty football"
+        "location": "Placeholder location",
+        "description": "placeholder description"
     }
 }

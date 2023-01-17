@@ -12,7 +12,19 @@
     </head>
     <body>
         <div class="topbar">
-            <a href="./login.html">Log In</a>
+            <script>
+                const fs = require('fs')
+                const $ = require('jQuery')
+
+                fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
+                    if(!error){
+                        const logged_in = JSON.parse(j_string)
+                        $('#login').html(logged_in.name)
+                    }
+                })
+            </script>
+
+            <a href="./login.html" id="login">Log In / Register</a>
             <h1 style=>Smithville Attendance</h1>
         </div>
 
