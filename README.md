@@ -7,5 +7,6 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  ```https://github.com/NatFletch/FBLA-Programming-2023.git```
  - Download and install Node.js
  - CD into source directory
+ - Run `git checkout experimental` so you can switch into the `experimental` branch
  - Run `npm install` to install all neccessary project dependencies
  - Start the program via `npm start`
