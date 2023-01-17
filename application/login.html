@@ -5,7 +5,6 @@
         <title>Log In</title>
         <link rel="stylesheet" href="./styles/default-dark.css">
         <link rel="stylesheet" href="./styles/login.css">
-
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +24,8 @@
                         const username = document.getElementById("username").value
                         const password = document.getElementById("password").value
 
-                        if(username == null && password != null){
-                            return "Please provide a username"
-                        } else if(password == null && username != null ){
-                            return "Please provide a password"
-                        } else if (username == null && password == null){
-                            return "Please enter a username and password"
+                        if(!username.trim().length || !password.trim().length){
+                            return console.log('AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
                         }
 
                         fs.readFile('./data/users/' + username + '.json', 'utf8', (error, json_string) => {
@@ -67,6 +62,62 @@
                 <button id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
 
                 <a style="float: right;" href="./index.html">Back to Home</a>
+            </div>
+        </div>
+
+        <br><hr><br>
+
+        <div class="register-box">
+            <div class="vertical-center">
+                <label for="desired-username">Desired Username: </label>
+                <input type="text" id="desired-username" name="desired-username"><br><br>
+                <label for="desired-password">Desired Password: </label>
+                <input type="password" id="desired-password" name="desired-password"><br><br>
+                <label for="desired-confirm-password">Confirm Password: </label>
+                <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
+                
+                <script>
+                    function onRegisterClick(){
+                        const fs = require('fs')
+    
+                        const username = document.getElementById('desired-username').value
+                        const password = document.getElementById('desired-password').value
+                        const confirm_password = document.getElementById('desired-confirm-password').value
+
+                        if(!username.trim().length || !password.trim().length || !confirm_password.trim().length){
+                            return console.log('ah')
+                        }
+
+                        if(password != confirm_password){
+                            return console.log('Passwords do not match')
+                        }
+
+                        if(username.toLowerCase() == "none" || username.toLowerCase() == "testaccount" || username.toLowerCase() == "example"){
+                            return console.log('That username is not allowed. Please choose a different username')
+                        }
+
+                        fs.readFile('./data/users/'+username+'.json', 'utf8', (error, j_string) => {
+                            if(!error){
+                                return console.log('YOU CANT')
+                            } else {
+                                const json_template = '{"name": '+username+', "password": '+password+', "points": 0, "attended_events": 0, "is_teacher": false}'
+
+                                fs.writeFile('./data/users/'+username.toLowerCase()+'.json', json_template, (error, string2) => {
+                                    if(!error){
+                                        console.log('Data Successfully written')
+                                        window.location.replace('./index.html')
+                                    } else {
+                                        return console.log('An error occured: '+error)
+                                    }
+                                })
+                            }
+                        })
+                    }
+                </script>
+
+                <button id="register" onClick="onRegisterClick()" type="button">Register</button><br><br>
+                <a style="float: right;" href="./index.html">Back to Home</a>
+
             </div>
         </div>
 
