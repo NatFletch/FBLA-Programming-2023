@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Blank Sample Page</title>
-
-        <link rel="stylesheet" href="./styles/default.css">
+        <title>Smithville Attendance</title>
+        <link rel="stylesheet" href="./styles/default-dark.css">
         <link rel="stylesheet" href="./styles/index.css">
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-
-        <py-config>
-            [splashscreen]
-            autoclose = true
-
-            [[fetch]]
-            files = ["./TeacherHelper.py", "./UserHelper.py"]
-        </py-config>
 
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
@@ -23,7 +12,19 @@
     </head>
     <body>
         <div class="topbar">
-            <a href="./login.html">Log In</a>
+            <script>
+                const fs = require('fs')
+                const $ = require('jQuery')
+
+                fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
+                    if(!error){
+                        const logged_in = JSON.parse(j_string)
+                        $('#login').html(logged_in.name)
+                    }
+                })
+            </script>
+
+            <a href="./login.html" id="login">Log In / Register</a>
             <h1 style=>Smithville Attendance</h1>
         </div>
 
@@ -31,11 +32,40 @@
 
         </div>
         <div class="sample-event">
-            <h3>Event Title</h3>
+            <h3 id="title">Event Title</h3>
             <hr>
-            <p>Location: </p>
-            <p>Time: 0:00am - 0:00pm:</p>
+            <p id="location">Location: </p>
+            <p id="time">Time: 0:00am - 0:00pm:</p>
+            <p id ="description">Description: None</p>
         </div>
+
+        <a id="eventadd" href="javascript:void(0)">New Event</a>
+
+        <script type="text/javascript">
+            require('jQuery')(document).ready(function($){
+                const fs = require('fs')
+    
+                const title = $('#title')
+                const location = $('#location')
+                const time = $('#time')
+                const description = $('#description')
+    
+                fs.readFile('./data/events.json', 'utf8', (error, json_string) => {
+                    const data = JSON.parse(json_string)
+                    console.log(json_string)
+                    
+                    Object.entries(data).forEach((entry) => {
+                        const [key, value] = entry;
+                        if(key == "event1"){
+                            title.html(value.name)
+                            location.html("Location: " + value.location)
+                            time.html("Time: " + value.time)
+                            description.html("Description: " + value.description)
+                        }
+                      });
+                })
+            })
+        </script>
 
         <div class="footer">
             <p>Nathan Fletcher 2022-2023</p>

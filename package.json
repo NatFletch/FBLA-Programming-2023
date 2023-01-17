@@ -1,5 +1,5 @@
 {
-  "name": "programming",
+  "name": "fbla_2023",
   "version": "1.0.0",
   "description": "My programming project for the 2023 FBLA season.",
   "main": "main.js",
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/NatFletch/FBLA-Programming-2023#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "jquery": "^3.6.3"
   }
 }

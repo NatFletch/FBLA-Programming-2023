@@ -3,18 +3,8 @@
     <head>
 
         <title>Log In</title>
-        <link rel="stylesheet" href="./styles/default.css">
+        <link rel="stylesheet" href="./styles/default-dark.css">
         <link rel="stylesheet" href="./styles/login.css">
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-        <py-config>
-            [splashscreen]
-            autoclose = true
-
-            [[fetch]]
-            files = ["./TeacherHelper.py", "./UserHelper.py", "../logged_in.json"]
-        </py-config>
-
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,21 +16,108 @@
                 <label for="username">Username: </label>
                 <input type="text" id="username" name="username"><br><br>
                 <label for="password">Password: </label>
-                <input type="text" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password"><br><br>
 
-                <py-script>
-                    from UserHelper import LoginManager, User
+                <script>
+                    function onLoginClick(){
+                        const fs = require('fs')
+                        const username = document.getElementById("username").value
+                        const password = document.getElementById("password").value
 
-                    mLoginManager = LoginManager()
+                        if(!username.trim().length || !password.trim().length){
+                            return console.log('AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
+                        }
 
-                    def onLoginClick():
-                        print(js.document.getElementById("username").value)
-                        mLoginManager.login_user(js.document.getElementById("username").value, js.document.getElementById("password").value)
-                </py-script>
+                        fs.readFile('./data/users/' + username + '.json', 'utf8', (error, json_string) => {
+                        if(!error){
+                            console.log("Success: ", json_string);
+                            const data = JSON.parse(json_string);
 
-                <button id="login" py-onClick="onLoginClick()" type="button">Log In</button><br><br>
+                            const logged_in_string = {
+                                "name": username,
+                                "is_teacher": data.is_teacher
+                            }
+                            const logged_in_json = JSON.stringify(logged_in_string)
+
+                            if(password == data.password){
+                                fs.writeFile('./logged_in.json', logged_in_json, err => {
+                                if (err) {
+                                    console.log('Error while writing file', err)
+                                    return
+                                } else {
+                                    console.log('Success logging in!')
+                                    window.location.replace("./index.html")
+                                    return
+                                }
+                            })
+                            return;
+                            }
+                        }
+                        
+                        console.log("Error while reading file: ", error)
+                    });
+                    }
+                </script>
+
+                <button id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
 
                 <a style="float: right;" href="./index.html">Back to Home</a>
+            </div>
+        </div>
+
+        <br><hr><br>
+
+        <div class="register-box">
+            <div class="vertical-center">
+                <label for="desired-username">Desired Username: </label>
+                <input type="text" id="desired-username" name="desired-username"><br><br>
+                <label for="desired-password">Desired Password: </label>
+                <input type="password" id="desired-password" name="desired-password"><br><br>
+                <label for="desired-confirm-password">Confirm Password: </label>
+                <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
+                
+                <script>
+                    function onRegisterClick(){
+                        const fs = require('fs')
+    
+                        const username = document.getElementById('desired-username').value
+                        const password = document.getElementById('desired-password').value
+                        const confirm_password = document.getElementById('desired-confirm-password').value
+
+                        if(!username.trim().length || !password.trim().length || !confirm_password.trim().length){
+                            return console.log('ah')
+                        }
+
+                        if(password != confirm_password){
+                            return console.log('Passwords do not match')
+                        }
+
+                        if(username.toLowerCase() == "none" || username.toLowerCase() == "testaccount" || username.toLowerCase() == "example"){
+                            return console.log('That username is not allowed. Please choose a different username')
+                        }
+
+                        fs.readFile('./data/users/'+username+'.json', 'utf8', (error, j_string) => {
+                            if(!error){
+                                return console.log('YOU CANT')
+                            } else {
+                                const json_template = '{"name": '+username+', "password": '+password+', "points": 0, "attended_events": 0, "is_teacher": false}'
+
+                                fs.writeFile('./data/users/'+username.toLowerCase()+'.json', json_template, (error, string2) => {
+                                    if(!error){
+                                        console.log('Data Successfully written')
+                                        window.location.replace('./index.html')
+                                    } else {
+                                        return console.log('An error occured: '+error)
+                                    }
+                                })
+                            }
+                        })
+                    }
+                </script>
+
+                <button id="register" onClick="onRegisterClick()" type="button">Register</button><br><br>
+                <a style="float: right;" href="./index.html">Back to Home</a>
+
             </div>
         </div>
 

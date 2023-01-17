@@ -33,3 +33,11 @@
     width:99%; 
     border-style: double;
 }
+
+#eventadd{
+    display: block;
+    color: white;
+    background-color: #5897e0;
+    height: 34px;
+    width: 80px
+}
