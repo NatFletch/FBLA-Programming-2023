@@ -4,5 +4,11 @@
         "time": "7:00pm - ~8:30pm",
         "location": "john wick Football Field",
         "description": "Boys Varsity football against Kearney Varisty football"
+    },
+    "event2": {
+        "name": "fortnite the game gaming Game",
+        "time": "7:00pm - ~8:30pm",
+        "location": "john wick Football Field",
+        "description": "Boys Varsity football against Kearney Varisty football"
     }
 }
