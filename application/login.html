@@ -34,7 +34,7 @@
                             const data = JSON.parse(json_string);
 
                             const logged_in_string = {
-                                "name": username,
+                                "name": data.name,
                                 "is_teacher": data.is_teacher
                             }
                             const logged_in_json = JSON.stringify(logged_in_string)

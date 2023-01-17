@@ -8,7 +8,6 @@
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     </head>
     <body>
         <div class="topbar">
@@ -19,7 +18,11 @@
                 fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
                     if(!error){
                         const logged_in = JSON.parse(j_string)
+                        if(logged_in.name == "none"){
+                            return
+                        }
                         $('#login').html(logged_in.name)
+                        document.getElementById('login').href = './profile.html'
                     }
                 })
             </script>
