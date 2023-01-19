@@ -2,16 +2,42 @@
 <html lang="en">
     <head>
         <title>Smithville Attendance</title>
-        <link rel="stylesheet" href="./styles/default-dark.css">
-        <link rel="stylesheet" href="./styles/index.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <style>
+            #topbar {
+                overflow: hidden;
+            }
+
+            #topbar a{
+                float: left;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            #topbar a:hover{
+                background-color: #5c5c5c;
+                color: black;
+            }
+
+            #topbar #login {
+                float: right;
+            }
+        </style>
     </head>
-    <body>
-        <div class="topbar">
+
+    <body class="bg-secondary">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+        <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script>
                 const fs = require('fs')
                 const $ = require('jQuery')
@@ -24,14 +50,14 @@
                 })
             </script>
 
-            <a href="./login.html" id="login">Log In / Register</a>
-            <h1 style=>Smithville Attendance</h1>
+            <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
+            <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
 
         <div class="divider">
-
+            <br>
         </div>
-        <div class="sample-event">
+        <div class="container text-white my-0 bg-dark" style="text-align: center;" id="sample-event">
             <h3 id="title">Event Title</h3>
             <hr>
             <p id="location">Location: </p>
