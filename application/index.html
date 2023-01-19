@@ -65,7 +65,7 @@
             <p id ="description">Description: None</p>
         </div>
 
-        <a id="eventadd" href="javascript:void(0)">New Event</a>
+        <a id="eventadd" href="javascript:void(0)">Post</a>
 
         <script type="text/javascript">
             require('jQuery')(document).ready(function($){
@@ -75,11 +75,12 @@
                 const location = $('#location')
                 const time = $('#time')
                 const description = $('#description')
+                const sample_event = document.querySelector(".sample-event")
     
                 fs.readFile('./data/events.json', 'utf8', (error, json_string) => {
                     const data = JSON.parse(json_string)
                     console.log(json_string)
-                    
+                    var num = 1
                     Object.entries(data).forEach((entry) => {
                         const [key, value] = entry;
                         if(key == "event1"){
@@ -87,6 +88,14 @@
                             location.html("Location: " + value.location)
                             time.html("Time: " + value.time)
                             description.html("Description: " + value.description)
+                        } else {
+                            num += 1
+                            console.log(num)
+                            console.log(value)
+                            const clone =  sample_event.cloneNode(true);
+                            clone.id = "event" + num
+                            $('#event'+num+'>#title').innerText = 'jaming'
+                            sample_event.after(clone)
                         }
                       });
                 })
