@@ -45,7 +45,11 @@
                 fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
                     if(!error){
                         const logged_in = JSON.parse(j_string)
+                        if(logged_in.name == "none"){
+                            return
+                        }
                         $('#login').html(logged_in.name)
+                        document.getElementById('login').href = './profile.html'
                     }
                 })
             </script>
