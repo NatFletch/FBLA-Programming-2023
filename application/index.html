@@ -70,8 +70,14 @@
                             console.log(num)
                             console.log(value)
                             const clone =  sample_event.cloneNode(true);
-                            clone.id = "event" + num
-                            $('#event'+num+'>#title').innerText = 'jaming'
+                            for(const node in clone.childNodes){
+                                if(node.name == "title"){
+                                    node.nodeValue = value.name
+                                } else {
+                                    console.log(node)
+                                    node.innerHTML = "ahhhhhhhhh"
+                                }
+                            }
                             sample_event.after(clone)
                         }
                       });

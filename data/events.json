@@ -4,5 +4,11 @@
         "time": "7:00pm - ~8:30pm",
         "location": "Placeholder location",
         "description": "placeholder description"
+    },
+    "event2":{
+        "name": "Placeholder game 2",
+        "time": "7:00pm - ~8:30pm 2",
+        "location": "Placeholder location 2",
+        "description": "placeholder description 2"
     }
 }

@@ -10,6 +10,37 @@
     </head>
 
     <body>
+        <div class="profile-box">
+            <h3>Your profile</h3>
+
+            <script>
+                const $ = require('jQuery')
+                const fs = require('fs')
+                const points = $('#points')
+
+                function findUser(){
+                    fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
+                        if(!error){
+                            const json = JSON.parse(j_string)
+                            return json.name;
+                        }
+                    })
+                }
+
+                function findPoints(){
+                    fs.readFile('./data/users/'+findUser()+".json", "utf8", (error, j_string) => {
+                        const json = JSON.parse(j_string)
+                        return json.points
+                    })
+                }
+
+                points.value = findPoints()
+            </script>
+            <p id="points">Zero Points LOL</p>
+        </div>
+
+        <a href="./index.html">Back to home</a>
+
         <div class="footer">
             <p>Nathan Fletcher 2022-2023</p>
             <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
