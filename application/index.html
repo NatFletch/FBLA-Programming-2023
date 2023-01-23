@@ -2,15 +2,45 @@
 <html lang="en">
     <head>
         <title>Smithville Attendance</title>
-        <link rel="stylesheet" href="./styles/default-dark.css">
-        <link rel="stylesheet" href="./styles/index.css">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./styles/default-dark.css">
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            #topbar {
+                overflow: hidden;
+            }
+
+            #topbar a{
+                float: left;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            #topbar #login {
+                float: right;
+            }
+
+            #footer {
+                position: fixed;
+                bottom: 0;
+            }
+
+            #footer a {
+                color:rgb(0, 183, 255);
+            }
+        </style>
     </head>
-    <body>
-        <div class="topbar">
+
+    <body style="background-color: #45484a">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+        <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script>
                 const fs = require('fs')
                 const $ = require('jQuery')
@@ -18,23 +48,19 @@
                 fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
                     if(!error){
                         const logged_in = JSON.parse(j_string)
-                        if(logged_in.name == "none"){
-                            return
-                        }
                         $('#login').html(logged_in.name)
-                        document.getElementById('login').href = './profile.html'
                     }
                 })
             </script>
 
-            <a href="./login.html" id="login">Log In / Register</a>
-            <h1 style=>Smithville Attendance</h1>
+            <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
+            <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
 
-        <div class="divider">
-            <br><br>
+        <div id="divider" style="background-color: #45484a;">
+            <br>
         </div>
-        <div class="sample-event">
+        <div class="container text-white my-0 bg-dark border border-light rounded shadow" style="text-align: center;" id="sample-event">
             <h3 id="title">Event Title</h3>
             <hr>
             <p id="location">Location: </p>
@@ -42,7 +68,38 @@
             <p id ="description">Description: None</p>
         </div>
 
-        <a id="eventadd" href="javascript:void(0)">Post</a>
+        <br>
+
+        <div class="container">
+            <button type="button" class="btn btn-primary border border-primary" data-bs-toggle="modal" data-bs-target="#post-modal">New Post</button>
+        </div>
+          
+        <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="post-label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="post-label">Create a new post!</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body container" id="modal-body">
+                    <h6>Title</h6>
+                    <input type="text" id="post-title">
+                    <h6>Location</h6>
+                    <input type="text" id="post-location">
+                    <h6>Time</h6>
+                    <input type="text" id="post-time">
+                    <h6>Description</h6>
+                    <textarea type="text" id="post-description" rows="4" cols="50"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Post</button>
+                </div>
+            </div>
+        </div>
+        </div>
 
         <script type="text/javascript">
             require('jQuery')(document).ready(function($){
@@ -52,7 +109,8 @@
                 const location = $('#location')
                 const time = $('#time')
                 const description = $('#description')
-                const sample_event = document.querySelector(".sample-event")
+                var last = document.querySelector("#sample-event")
+                const divider = document.querySelector('#divider')
     
                 fs.readFile('./data/events.json', 'utf8', (error, json_string) => {
                     const data = JSON.parse(json_string)
@@ -69,23 +127,24 @@
                             num += 1
                             console.log(num)
                             console.log(value)
-                            const clone =  sample_event.cloneNode(true);
-                            for(const node in clone.childNodes){
-                                if(node.name == "title"){
-                                    node.nodeValue = value.name
-                                } else {
-                                    console.log(node)
-                                    node.innerHTML = "ahhhhhhhhh"
-                                }
-                            }
-                            sample_event.after(clone)
+                            const clone =  last.cloneNode(true);
+                            clone.id = "sample-event"+num
+                            const clone2 = divider.cloneNode(true)
+                            last.after(clone2)
+                            clone2.after(clone)
+
+                            $("#sample-event"+num+">#title").html(value.name)
+                            $("#sample-event"+num+">#location").html("Location: " + value.location)
+                            $("#sample-event"+num+">#time").html("Time: " + value.time)
+                            $("#sample-event"+num+">#description").html("Description: " + value.description)
+                            last = clone
                         }
                       });
                 })
             })
         </script>
 
-        <div class="footer">
+        <div class="container-fluid bg-secondary text-white text-center" id="footer">
             <p>Nathan Fletcher 2022-2023</p>
             <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
             <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
