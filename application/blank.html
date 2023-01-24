@@ -7,9 +7,52 @@
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            #topbar {
+                overflow: hidden;
+            }
+
+            #topbar a{
+                float: left;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            #topbar #login {
+                float: right;
+            }
+
+            #footer {
+                position: fixed;
+                bottom: 0;
+            }
+
+            #footer a {
+                color:rgb(0, 183, 255);
+            }
+        </style>
     </head>
 
     <body>
+        <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
+            <script>
+                const fs = require('fs')
+                const $ = require('jQuery')
+
+                fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
+                    if(!error){
+                        const logged_in = JSON.parse(j_string)
+                        $('#login').html(logged_in.name)
+                    }
+                })
+            </script>
+
+            <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
+            <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
+        </div>
+
         <div class="footer">
             <p>Nathan Fletcher 2022-2023</p>
             <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>

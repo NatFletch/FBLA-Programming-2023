@@ -84,14 +84,34 @@
                     </button>
                 </div>
                 <div class="modal-body container" id="modal-body">
-                    <h6>Title</h6>
+                    <h6>Event Template</h6>
+                    <select class="form-select" aria-label="">
+                        <option selected>Choose from some event templates (not required)</option>
+                        <option value="1">Assembly</option>
+                        <option value="2">School Board Meeting</option>
+                        <option value="3">Award Ceremony</option>
+                        <option value="4">School Musical</option>
+                        <option value="5">School Play</option>
+                        <option value="6">Football Game</option>
+                        <option value="7">Basketball Game</option>
+                        <option value="8">Soccer Game</option>
+                        <option value="9">Volleyball Game</option>
+                        <option value="10">Cross Country Meet</option>
+                        <option value="11">Wrestling Tournament</option>
+                        <option value="12">Track Meet</option>
+                        <option value="13">Golf</option>
+                        <option value="14">Band Concert</option>
+                        <option value="15">Choir Concert</option>
+                    </select>
+                    <h6>Title *</h6>
                     <input type="text" id="post-title">
-                    <h6>Location</h6>
+                    <h6>Location *</h6>
                     <input type="text" id="post-location">
-                    <h6>Time</h6>
+                    <h6>Time *</h6>
                     <input type="text" id="post-time">
-                    <h6>Description</h6>
-                    <textarea type="text" id="post-description" rows="4" cols="50"></textarea>
+                    <h6>Description *</h6>
+                    <textarea type="text" id="post-description" rows="4" cols="50" style="resize: none;"></textarea>
+                    <h6 class="text-danger">* = required entry</h6>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
