@@ -11,6 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <style>
+            html, body {
+                overflow: visible;
+            }
+
             #topbar {
                 overflow: hidden;
             }
@@ -29,6 +33,10 @@
             #footer {
                 position: fixed;
                 bottom: 0;
+            }
+
+            #footer-bounds {
+                height: 150px;
             }
 
             #footer a {
@@ -73,6 +81,38 @@
         <div class="container">
             <button type="button" class="btn btn-primary border border-primary" data-bs-toggle="modal" data-bs-target="#post-modal">New Post</button>
         </div>
+
+        <script>
+            // Select handler
+
+            function selectOnChange(){
+                const fs = require('fs')
+                const $ = require('jQuery')
+                const select = $("#template-sel")
+                const title = $("#post-title")
+                const location = $("#post-location")
+                const time = $("#post-time")
+                const description = $("#post-description")
+
+                var json_data;
+
+                fs.readFile('./data/templates.json', "utf-8", (err, j_string) => {
+                    if(err){
+                        return console.log('something went horribly wrong reading this file: '+err)
+                    }
+                    json_data = JSON.parse(j_string)
+                })
+
+                switch(select.entries){
+                    case(1):
+                        title.html(json_data.title)
+                        location.html(json_data.location)
+                        time.html(json_data.time)
+                        description.html(json_data.time)
+                }
+            }
+
+        </script>
           
         <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="post-label" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -85,7 +125,7 @@
                 </div>
                 <div class="modal-body container" id="modal-body">
                     <h6>Event Template</h6>
-                    <select class="form-select" aria-label="">
+                    <select class="form-select" id="template-sel" aria-label="" onchange="selectOnChange()">
                         <option selected>Choose from some event templates (not required)</option>
                         <option value="1">Assembly</option>
                         <option value="2">School Board Meeting</option>
@@ -109,7 +149,7 @@
                     <input type="text" id="post-location">
                     <h6>Time *</h6>
                     <input type="text" id="post-time">
-                    <h6>Description *</h6>
+                    <h6>Description</h6>
                     <textarea type="text" id="post-description" rows="4" cols="50" style="resize: none;"></textarea>
                     <h6 class="text-danger">* = required entry</h6>
                 </div>
@@ -119,7 +159,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
         <script type="text/javascript">
             require('jQuery')(document).ready(function($){
@@ -164,10 +204,12 @@
             })
         </script>
 
-        <div class="container-fluid bg-secondary text-white text-center" id="footer">
-            <p>Nathan Fletcher 2022-2023</p>
-            <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
-            <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
+        <div class="cotainer-fluid" id="footer-bounds"></div>
+            <div class="container-fluid bg-secondary text-white text-center" id="footer">
+                <p>Nathan Fletcher 2022-2023</p>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
+            </div>
         </div>
     </body>
 </html>
