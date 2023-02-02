@@ -1,20 +1,20 @@
 {
     "event1":{
-        "name": "Example football game",
+        "name": "Placeholder game",
         "time": "7:00pm - ~8:30pm",
-        "location": "Football field",
-        "description": "Football game"
+        "location": "Placeholder location",
+        "description": "placeholder description"
     },
     "event2":{
-        "name": " Example Assembly",
-        "time": "7:00pm - ~8:30pm",
-        "location": "School gym",
-        "description": "Important stuff will be going down"
+        "name": "Placeholder game 2",
+        "time": "7:00pm - ~8:30pm 2",
+        "location": "Placeholder location 2",
+        "description": "placeholder description 2"
     },
     "event3":{
-        "name": "School board meeting",
-        "time": "7:00pm - ~8:30pm",
-        "location": "District office",
-        "description": "more significant stuff"
+        "name": "Placeholder game 3",
+        "time": "7:00pm - ~8:30pm 3",
+        "location": "Placeholder location 3",
+        "description": "placeholder description 3"
     }
 }

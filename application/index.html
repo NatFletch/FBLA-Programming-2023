@@ -83,8 +83,7 @@
         </div>
 
         <script>
-            // Select handler
-
+            // Select changed
             function selectOnChange(){
                 const fs = require('fs')
                 const $ = require('jQuery')
@@ -103,13 +102,8 @@
                     json_data = JSON.parse(j_string)
                 })
 
-                switch(select.entries){
-                    case(1):
-                        title.html(json_data.title)
-                        location.html(json_data.location)
-                        time.html(json_data.time)
-                        description.html(json_data.time)
-                }
+                console.log('fortntie')
+
             }
 
         </script>
@@ -153,9 +147,48 @@
                     <textarea type="text" id="post-description" rows="4" cols="50" style="resize: none;"></textarea>
                     <h6 class="text-danger">* = required entry</h6>
                 </div>
+
+                <script>
+            
+                    function postEvent(){
+                        const fs = require('fs')
+                        const $ = require('jQuery')
+                        const select = $("#template-sel")
+                        const title = $("#post-title")
+                        const location = $("#post-location")
+                        const time = $("#post-time")
+                        const description = $("#post-description")
+        
+                        var j_string = fs.readFileSync('./data/events.json')
+                        var thedata = JSON.parse(j_string)
+                        var event = ("event"+(Object.keys(thedata).length+1))
+                        const json_template = {
+                            [event]: {
+                                "name": title.value,
+                                "time": time.value,
+                                "location": location.value,
+                                "description": description.value,
+                            }
+                        }
+                        console.log(json_template)
+                        console.log(thedata)
+                        var pushed = JSON.parse(json_template)
+                        var new_data = thedata.push(json_template)
+                        console.log(new_data)
+                        const json_string = JSON.stringify(new_data)
+        
+                        fs.writeFile('./data/events.json', json_string, (err) => {
+                            if (err){
+                                return console.log("Something went horribly wrong when trying to post your event: "+err)
+                            }
+                            return console.log('wrote it')
+                        })
+                    }
+                </script>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Post</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="postEvent()">Post</button>
                 </div>
             </div>
         </div>
