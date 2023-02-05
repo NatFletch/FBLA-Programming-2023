@@ -172,8 +172,7 @@
                         }
                         console.log(json_template)
                         console.log(thedata)
-                        var pushed = JSON.parse(json_template)
-                        var new_data = thedata.push(json_template)
+                        new_data = Object.assign(thedata, json_template)
                         console.log(new_data)
                         const json_string = JSON.stringify(new_data)
         
