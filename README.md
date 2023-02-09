@@ -12,7 +12,7 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  
 Coming Soon
 
-# TODO
+# TODO (outdated)
 THere is a lot of stuff I still need to finish up on
  - The ability to post a new event
  - The ability to find students and give them points
