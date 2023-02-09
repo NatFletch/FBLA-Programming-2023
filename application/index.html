@@ -87,11 +87,11 @@
             function selectOnChange(){
                 const fs = require('fs')
                 const $ = require('jQuery')
-                const select = $("#template-sel")
-                const title = $("#post-title")
-                const location = $("#post-location")
-                const time = $("#post-time")
-                const description = $("#post-description")
+                const select = document.getElementById("#template-sel")
+                const title = document.getElementById("#post-title")
+                const location = document.getElementById("#post-location")
+                const time = document.getElementById("#post-time")
+                const description = document.getElementById("#post-description")
 
                 var json_data;
 
@@ -153,11 +153,11 @@
                     function postEvent(){
                         const fs = require('fs')
                         const $ = require('jQuery')
-                        const select = $("#template-sel")
-                        const title = $("#post-title")
-                        const location = $("#post-location")
-                        const time = $("#post-time")
-                        const description = $("#post-description")
+                        const select = document.getElementById("template-sel")
+                        const title = document.getElementById("post-title")
+                        const location = document.getElementById("post-location")
+                        const time = document.getElementById("post-time")
+                        const description = document.getElementById("post-description")
         
                         var j_string = fs.readFileSync('./data/events.json')
                         var thedata = JSON.parse(j_string)

@@ -127,45 +127,44 @@
                 <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
                 
                 <script>
-                    function onRegisterClick(){
-                        const fs = require('fs')
+
+                    function registerClick(){
+                        
+                        const dotenv = require('dotenv')
+                        dotenv.config();
+                        const url = process.env.MONGOLAB_URI
+                        mongoose.connect(url)
     
-                        const username = document.getElementById('desired-username').value
+                        const name = document.getElementById('desired-username').value
                         const password = document.getElementById('desired-password').value
                         const confirm_password = document.getElementById('desired-confirm-password').value
 
-                        if(!username.trim().length || !password.trim().length || !confirm_password.trim().length){
+                        if(!name.trim().length || !pass.trim().length || !confirm_password.trim().length){
                             return console.log('ah')
                         }
 
-                        if(password != confirm_password){
+                        if(pass != confirm_password){
                             return console.log('Passwords do not match')
                         }
 
-                        if(username.toLowerCase() == "none" || username.toLowerCase() == "testaccount" || username.toLowerCase() == "example"){
+                        if(name.toLowerCase() == "none" || name.toLowerCase() == "testaccount" || name.toLowerCase() == "example"){
                             return console.log('That username is not allowed. Please choose a different username')
                         }
 
-                        fs.readFile('./data/users/'+username+'.json', 'utf8', (error, j_string) => {
-                            if(!error){
-                                return console.log('YOU CANT')
-                            } else {
-                                const json_template = '{"name": '+username+', "password": '+password+', "points": 0, "attended_events": 0, "is_teacher": false}'
+                        const dataTemplate =  Promise.resolve(Profile.create({
+                            username: name,
+                            password: pass,
+                            created_at: Date.now(),
+                            points: 0,
+                            is_teacher: false,
+                            items: [null]
+                        }))
 
-                                fs.writeFile('./data/users/'+username.toLowerCase()+'.json', json_template, (error, string2) => {
-                                    if(!error){
-                                        console.log('Data Successfully written')
-                                        window.location.replace('./index.html')
-                                    } else {
-                                        return console.log('An error occured: '+error)
-                                    }
-                                })
-                            }
-                        })
+                        console.log(dataTemplate)
                     }
                 </script>
 
-                <button class="btn btn-primary" id="register" onClick="onRegisterClick()" type="button">Register</button><br><br>
+                <button class="btn btn-primary" onclick={registerClick} type="button">Register</button><br><br>
 
             </div>
         </div>
