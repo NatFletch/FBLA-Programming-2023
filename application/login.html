@@ -6,52 +6,17 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./styles/default-dark.css">
+        <link rel="stylesheet" href="./styles/index.css">
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <style>
-            #topbar {
-                overflow: hidden;
-            }
-
-            #topbar a{
-                float: left;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-            #topbar #login {
-                float: right;
-            }
-
-            #footer {
-                position: fixed;
-                bottom: 0;
-            }
-
-            #footer a {
-                color:rgb(0, 183, 255);
-            }
-        </style>
     </head>
 
     <body style="background-color: #45484a">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
-            <script>
-                const fs = require('fs')
-                const $ = require('jQuery')
-
-                fs.readFile('./logged_in.json', 'utf8', (error, j_string) => {
-                    if(!error){
-                        const logged_in = JSON.parse(j_string)
-                        $('#login').html(logged_in.name)
-                    }
-                })
-            </script>
+            <script src="./scripts/loginButtonName.js"></script>
 
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
@@ -68,46 +33,7 @@
                 <label for="password">Password: </label>
                 <input type="password" id="password" name="password"><br><br>
 
-                <script>
-                    function onLoginClick(){
-                        const fs = require('fs')
-                        const username = document.getElementById("username").value
-                        const password = document.getElementById("password").value
-
-                        if(!username.trim().length || !password.trim().length){
-                            return console.log('AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
-                        }
-
-                        fs.readFile('./data/users/' + username + '.json', 'utf8', (error, json_string) => {
-                        if(!error){
-                            console.log("Success: ", json_string);
-                            const data = JSON.parse(json_string);
-
-                            const logged_in_string = {
-                                "name": data.name,
-                                "is_teacher": data.is_teacher
-                            }
-                            const logged_in_json = JSON.stringify(logged_in_string)
-
-                            if(password == data.password){
-                                fs.writeFile('./logged_in.json', logged_in_json, err => {
-                                if (err) {
-                                    console.log('Error while writing file', err)
-                                    return
-                                } else {
-                                    console.log('Success logging in!')
-                                    window.location.replace("./index.html")
-                                    return
-                                }
-                            })
-                            return;
-                            }
-                        }
-                        
-                        console.log("Error while reading file: ", error)
-                    });
-                    }
-                </script>
+                <script src="./scripts/loginUser.js"></script>
 
                 <button class="btn btn-primary" id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
             </div>
@@ -126,43 +52,7 @@
                 <label for="desired-confirm-password">Confirm Password: </label>
                 <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
                 
-                <script>
-
-                    function registerClick(){
-                        
-                        const dotenv = require('dotenv')
-                        dotenv.config();
-                        const url = process.env.MONGOLAB_URI
-                        mongoose.connect(url)
-    
-                        const name = document.getElementById('desired-username').value
-                        const password = document.getElementById('desired-password').value
-                        const confirm_password = document.getElementById('desired-confirm-password').value
-
-                        if(!name.trim().length || !pass.trim().length || !confirm_password.trim().length){
-                            return console.log('ah')
-                        }
-
-                        if(pass != confirm_password){
-                            return console.log('Passwords do not match')
-                        }
-
-                        if(name.toLowerCase() == "none" || name.toLowerCase() == "testaccount" || name.toLowerCase() == "example"){
-                            return console.log('That username is not allowed. Please choose a different username')
-                        }
-
-                        const dataTemplate =  Promise.resolve(Profile.create({
-                            username: name,
-                            password: pass,
-                            created_at: Date.now(),
-                            points: 0,
-                            is_teacher: false,
-                            items: [null]
-                        }))
-
-                        console.log(dataTemplate)
-                    }
-                </script>
+                <script src="./scripts/registerUser.js"></script>
 
                 <button class="btn btn-primary" onclick={registerClick} type="button">Register</button><br><br>
 

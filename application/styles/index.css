@@ -1,52 +1,31 @@
-body {
-    margin-left: 40px;
-    margin-right: 40px;
+html, body {
+    overflow: visible;
 }
 
-.topbar {
-    background-color: #27292e;
-    height:75px;
+#topbar {
+    overflow: hidden;
 }
 
-.topbar h1{
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-}
-
-.topbar a{
-    background-color: #27292e; 
-    font-family: Verdana; 
-    float: right; 
-    color:aliceblue; 
-    font-size: 20px; 
-    margin-top:37.5px; 
-    margin-right: 5px;
-}
-
-.divder {
-    padding: 5px 5px;
-}
-
-.sample-event {
-    font-family: Verdana;
-    color: white; 
-    background-color: #27292e; 
-    padding-top:5px; 
-    padding-bottom: 5px; 
-    border-style: double;
-}
-
-#eventadd{
-    display: block;
-    color: white;
-    background-color: #5897e0;
-    height: 34px;
-    width: 80px;
-    font-family: Verdana;
-    font-size: 20px;
-    text-decoration: none;
+#topbar a{
+    float: left;
     text-align: center;
-    margin-top: 10px;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+#topbar #login {
     float: right;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+}
+
+#footer-bounds {
+    height: 150px;
+}
+
+#footer a {
+    color:rgb(0, 183, 255);
 }
