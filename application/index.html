@@ -8,24 +8,23 @@
         <link rel="stylesheet" href="./styles/default-dark.css">
         <link rel="stylesheet" href="./styles/index.css">
         <meta charset="UTF-8">
-        <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body style="background-color: #45484a">
+    <body>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 
-        <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
+        <div id="topbar" class="container-fluid bg-dark text-white">
             <script src="./scripts/loginButtonName.js"></script>
-
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
 
-        <div id="divider" style="background-color: #45484a;">
+        <div id="divider" class="bg-#45484a">
             <br>
         </div>
-        <div class="container text-white my-0 bg-dark border border-light rounded shadow" style="text-align: center;" id="sample-event">
+
+        <div class="container text-white bg-dark border border-light rounded shadow" style="text-align: center;" id="sample-event">
             <h3 id="title">Event Title</h3>
             <hr>
             <p id="location">Location: </p>
@@ -44,60 +43,60 @@
         <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="post-label" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="post-label">Create a new post!</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body container" id="modal-body">
-                    <h6>Event Template</h6>
-                    <select class="form-select" id="template-sel" aria-label="" onchange="selectOnChange()">
-                        <option selected>Choose from some event templates (not required)</option>
-                        <option value="1">Assembly</option>
-                        <option value="2">School Board Meeting</option>
-                        <option value="3">Award Ceremony</option>
-                        <option value="4">School Musical</option>
-                        <option value="5">School Play</option>
-                        <option value="6">Football Game</option>
-                        <option value="7">Basketball Game</option>
-                        <option value="8">Soccer Game</option>
-                        <option value="9">Volleyball Game</option>
-                        <option value="10">Cross Country Meet</option>
-                        <option value="11">Wrestling Tournament</option>
-                        <option value="12">Track Meet</option>
-                        <option value="13">Golf</option>
-                        <option value="14">Band Concert</option>
-                        <option value="15">Choir Concert</option>
-                    </select>
-                    <h6>Title *</h6>
-                    <input type="text" id="post-title">
-                    <h6>Location *</h6>
-                    <input type="text" id="post-location">
-                    <h6>Time *</h6>
-                    <input type="text" id="post-time">
-                    <h6>Description</h6>
-                    <textarea type="text" id="post-description" rows="4" cols="50" style="resize: none;"></textarea>
-                    <h6 class="text-danger">* = required entry</h6>
-                </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="post-label">Create a new post!</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body container" id="modal-body">
+                        <h6>Event Template</h6>
+                        <select class="form-select" id="template-sel" aria-label="" onchange="selectOnChange()">
+                            <option selected>Choose from some event templates (not required)</option>
+                            <option value="1">Assembly</option>
+                            <option value="2">School Board Meeting</option>
+                            <option value="3">Award Ceremony</option>
+                            <option value="4">School Musical</option>
+                            <option value="5">School Play</option>
+                            <option value="6">Football Game</option>
+                            <option value="7">Basketball Game</option>
+                            <option value="8">Soccer Game</option>
+                            <option value="9">Volleyball Game</option>
+                            <option value="10">Cross Country Meet</option>
+                            <option value="11">Wrestling Tournament</option>
+                            <option value="12">Track Meet</option>
+                            <option value="13">Golf</option>
+                            <option value="14">Band Concert</option>
+                            <option value="15">Choir Concert</option>
+                        </select>
+                        <h6>Title *</h6>
+                        <input type="text" id="post-title">
+                        <h6>Location *</h6>
+                        <input type="text" id="post-location">
+                        <h6>Time *</h6>
+                        <input type="text" id="post-time">
+                        <h6>Description</h6>
+                        <textarea type="text" id="post-description" rows="4" cols="50" style="resize: none;"></textarea>
+                        <h6 class="text-danger">* = required entry</h6>
+                    </div>
 
-                <script src="./scripts/postEvent.js"></script>
+                    <script src="./scripts/postEvent.js"></script>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="postEvent()">Post</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="postEvent()">Post</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <script src="./scripts/addEvents.js"></script>
 
         <div class="cotainer-fluid" id="footer-bounds"></div>
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
                 <p>Nathan Fletcher 2022-2023</p>
-                <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
-                <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE" target="_blank">License</a>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/" target="_blank">Source Code</a>
             </div>
         </div>
     </body>

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, shell, BrowserWindow } = require('electron')
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -10,6 +10,11 @@ const createWindow = () => {
             contextIsolation: false
         }
     })
+    
+    win.webContents.setWindowOpenHandler(({ url }) => {
+        shell.openExternal(url);
+        return { action: 'deny' };
+    });
     //win.setMenu(null);
     win.loadFile('./application/index.html');
   }

@@ -10,7 +10,6 @@ require('jQuery')(document).ready(function($){
 
     fs.readFile('./data/events.json', 'utf8', (error, json_string) => {
         const data = JSON.parse(json_string)
-        console.log(json_string)
         var num = 1
         Object.entries(data).forEach((entry) => {
             const [key, value] = entry;
@@ -21,8 +20,6 @@ require('jQuery')(document).ready(function($){
                 description.html("Description: " + value.description)
             } else {
                 num += 1
-                console.log(num)
-                console.log(value)
                 const clone =  last.cloneNode(true);
                 clone.id = "sample-event"+num
                 const clone2 = divider.cloneNode(true)
