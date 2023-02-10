@@ -33,7 +33,7 @@
                 <label for="password">Password: </label>
                 <input type="password" id="password" name="password"><br><br>
 
-                <script src="./scripts/loginUser.js"></script>
+                <script src="../data/scripts/registerUser.js"></script>
 
                 <button class="btn btn-primary" id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
             </div>
@@ -52,9 +52,9 @@
                 <label for="desired-confirm-password">Confirm Password: </label>
                 <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
                 
-                <script src="./scripts/registerUser.js"></script>
+                <script src="../data/scripts/registerUser.js"></script>
 
-                <button class="btn btn-primary" onclick={registerClick} type="button">Register</button><br><br>
+                <button class="btn btn-primary" onclick=registerClick() type="button">Register</button><br><br>
 
             </div>
         </div>
