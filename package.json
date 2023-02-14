@@ -22,6 +22,7 @@
   "homepage": "https://github.com/NatFletch/FBLA-Programming-2023#readme",
   "dependencies": {
     "jquery": "^3.6.3",
+    "node-postgres": "^0.6.2",
     "sqlite-sync": "^0.3.8"
   }
 }

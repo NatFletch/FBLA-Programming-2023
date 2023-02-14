@@ -17,16 +17,6 @@ function registerClick(){
     addUserToDatabase(name, password, 0, 0)    
 }
 
-function addUserToDatabase(username, password, points, isTeacher){
-    const sqlite = require('sqlite-sync')
-
-    sqlite.connect('../database.sqlite')
-    var total = sqlite.run('SELECT COUNT(*) FROM user_profiles')
-    try{
-        sqlite.run('INSERT INTO user_profiles (UserID, Username, Password, Points, isTeacher) VALUES ('+total+','+username+', '+password+','+points+','+isTeacher+')')
-    }
-    
-    catch {
-        console.log('something happened')
-    }
+function addUserToDatabase(username, password, points, teacher){
+    //todo (switch to cockroach db)
 }

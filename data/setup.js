@@ -1,5 +1,16 @@
-const sqlite = require('sqlite-sync')
+const { Client } = require("node-postgres");
 
-sqlite.connect('./database.sqlite')
+const client = new Client(process.env.DATABASE_URL);
 
-sqlite.run("CREATE TABLE user_profiles (UserID int, Username text, Password text, Points int, isTeacher int)")
+(async () => {
+  await client.connect();
+  try {
+    const results = await client.query("SELECT NOW()");
+    console.log(results);
+  } catch (err) {
+    console.error("error executing query:", err);
+  } finally {
+    console.log('yes')
+    client.end();
+  }
+})();
