@@ -1,16 +1,11 @@
-const { Client } = require("node-postgres");
+const { Client } = require("pg");
 
-const client = new Client(process.env.DATABASE_URL);
+const client = new Client(process.env.FBLA_23_DATABASE);
 
-(async () => {
-  await client.connect();
-  try {
-    const results = await client.query("SELECT NOW()");
-    console.log(results);
-  } catch (err) {
-    console.error("error executing query:", err);
-  } finally {
-    console.log('yes')
-    client.end();
-  }
-})();
+client.connect()
+
+client.query("CREATE TABLE user_profiles (Username text, Password text, Points int, isTeacher int)", (err, res) => {
+    if (err) throw err
+    console.log(res)
+    client.end()
+})
