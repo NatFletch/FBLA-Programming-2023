@@ -1,7 +1,7 @@
 // TODO
 function selectOnChange(){
     const fs = require('fs')
-    const $ = require('jQuery')
+    const $ = require('jquery')
     const select = document.getElementById("#template-sel")
     const title = document.getElementById("#post-title")
     const location = document.getElementById("#post-location")
