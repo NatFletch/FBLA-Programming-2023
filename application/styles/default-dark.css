@@ -1,3 +1,35 @@
+html, body {
+  overflow: visible;
+}
+
+#topbar {
+  overflow: hidden;
+}
+
+#topbar a{
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+#topbar #login {
+  float: right;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+}
+
+#footer-bounds {
+  height: 150px;
+}
+
+#footer a {
+  color:rgb(0, 183, 255);
+}
+
 /* NICER NAVBAR TOGGLE */
 .navbar-toggle {
     border:0px;
