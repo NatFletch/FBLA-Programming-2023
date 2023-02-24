@@ -23,7 +23,6 @@
   "dependencies": {
     "jquery": "^3.6.3",
     "node-postgres": "^0.6.2",
-    "pg": "^8.9.0",
-    "sqlite-sync": "^0.3.8"
+    "pg": "^8.9.0"
   }
 }

@@ -10,14 +10,10 @@ require('jquery')(document).ready(function($){
     var events_list;
 
     db_client.query('SELECT * FROM events', (err, res) => {
-        events_list = new Array(res.rows)
         console.log(res.rows)
     })
 
-    for(post of events_list){
-        if(post === undefined){
-            continue
-        }
+    events_list.forEach(post => {
         console.log('a')
         if(counter === 0){
             counter += 1;
@@ -27,5 +23,5 @@ require('jquery')(document).ready(function($){
             time.html(post["time"])
             description.html(post["description"])
         }
-    }
+    })
 })
