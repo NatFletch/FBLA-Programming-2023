@@ -14,7 +14,7 @@ function registerClick(){
         return dialogue.alert('Passwords do not match', 'warning')
     }
 
-    if(name.toLowerCase() == "none" || name.toLowerCase() == "testaccount" || name.toLowerCase() == "example"){
+    if(name.toLowerCase() == "none" || name.toLowerCase() == "testaccount" || name.toLowerCase() == "example" || name.toLowerCase() == "admin"){
         return dialogue.alert('That username is not allowed. Please choose a different username', 'warning')
     }
 
