@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/NatFletch/FBLA-Programming-2023#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "node-postgres": "^0.6.2",
     "pg": "^8.9.0"

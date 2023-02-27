@@ -1,4 +1,4 @@
-const db_client = require('../data/db_client')
+const db_client = require('../modules/db_client')
 
 
 //Checks to see if the db tables were already created

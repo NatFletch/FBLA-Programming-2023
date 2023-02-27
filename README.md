@@ -14,11 +14,10 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  
 Coming Soon
 
-# TODO (outdated)
+# TODO
 There is a lot of stuff I still need to finish up on
  - The ability to find students and give them points
  - Required UI FBLA wants me to use
  - Reports at the end of each quarter
+ - Profile page
  - A store
-
-A second todo list will come out whenever I finish the general todo list

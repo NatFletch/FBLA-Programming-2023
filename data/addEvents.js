@@ -1,27 +1,19 @@
 require('jquery')(document).ready(function($){
-    const title = $('#title')
-    const location = $('#location')
-    const time = $('#time')
-    const description = $('#description')
-    const divider = document.querySelector('#divider')
-    const db_client = require('../data/db_client')
-    var last = document.querySelector("#sample-event")
-    var counter = 0;
+    const db_client = require('../modules/db_client')
+    const helpers = require('../modules/helpers')
     var events_list;
 
     db_client.query('SELECT * FROM events', (err, res) => {
-        console.log(res.rows)
+        if(err){
+            throw err;
+        }
+        events_list = res.rows
+        helpers.update_events(events_list)
+        updateCache()
     })
 
-    events_list.forEach(post => {
-        console.log('a')
-        if(counter === 0){
-            counter += 1;
-            console.log('b')
-            title.html(post["title"])
-            location.html(post["location"])
-            time.html(post["time"])
-            description.html(post["description"])
-        }
-    })
+    function updateCache(){
+        window.localStorage.setItem("events", events_list)
+    }
 })
+

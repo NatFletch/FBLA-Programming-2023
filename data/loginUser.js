@@ -1,5 +1,10 @@
+const { dialog } = require('electron')
+
 function onLoginClick(){
-    const db_client = require('../data/db_client')
+    const db_client = require('../modules/db_client')
+    const dialogue = require('../modules/dialogue')
+    const cache = require('../modules/cache')
+    const $ = require('jquery')
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
 
@@ -9,13 +14,13 @@ function onLoginClick(){
 
     db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [username], (err, res) => {
         if(password == res.rows[1]["password"]){
-            window.localStorage.setItem("logged_in", username)
-            console.log('Success logging in!')
+            cache.setItem("logged_in", username)
+            dialogue.alert('Success logging in!', 'success')
             window.location.replace("../application/index.html")
             return
         } else {
-            return console.log("Incorrect username or password")
+            return dialogue.alert('Incorrect username or password', 'danger')
         }
     })
-    
+
 }
