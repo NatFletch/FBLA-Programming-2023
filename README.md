@@ -17,7 +17,14 @@ Coming Soon
 # TODO
 There is a lot of stuff I still need to finish up on
  - The ability to find students and give them points
- - Required UI FBLA wants me to use
+ - Use cache system to load events faster
  - Reports at the end of each quarter
  - Profile page
  - A store
+ 
+ If all goes well then the next step is to:
+ - Do leaderboard
+ - User settings
+ - Email recipts for purchases
+ - QR code system for attendance at events
+ - Website version
