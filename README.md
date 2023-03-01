@@ -20,6 +20,7 @@ There is a lot of stuff I still need to finish up on
  - Reports at the end of each quarter
  - Profile page
  - A store
+ - Compile all this into a binary
  
  If all goes well then the next step is to:
  - Do leaderboard
