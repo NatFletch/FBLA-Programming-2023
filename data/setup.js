@@ -7,7 +7,9 @@ var update_option = "user_profiles"
 
 function update_tables(option){
     if (option == "user_profiles"){
-        db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, SecurityCode text)", (err, res) => {
+        // db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, SecurityCode text)", (err, res) => {
+        // TODO for after pre judge ^^^^
+        db_client.query("CREATE TABLE user_profiles (Username text, Password text, Points int, isTeacher int", (err, res) => {
             if (err) throw err
             console.log(res)
         })
@@ -20,7 +22,9 @@ function update_tables(option){
 }
 
 function create_tables(){
-    db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, SecurityCode text)", (err, res) => {
+    // db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, SecurityCode text)", (err, res) => {
+    // TODO for after pre judge ^^^^
+    db_client.query("CREATE TABLE user_profiles (Username text, Password text, Points int, isTeacher int", (err, res) => {
         if (err) throw err
         console.log(res)
     })
