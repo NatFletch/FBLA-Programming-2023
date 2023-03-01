@@ -29,3 +29,8 @@ There is a lot of stuff I still need to finish up on
  - Email recipts for purchases
  - QR code system for attendance at events
  - Website version
+
+# Prejudge Day Preperations
+ - Disable dev tools
+ - Generate and provide a DB link (or somehow incorporate it into the binary)
+ - Download, compile, and submit a binary of the project
