@@ -6,9 +6,10 @@ function postEvent(){
     const db_client = require('../modules/db_client')
     const dialogue = require('../modules/dialogue')
     const cache = require('../modules/cache')
+    const helpers = require('../modules/helpers')
 
     if(!title.trim().length || !location.trim().length || !time.trim().length){
-        dialogue.alert('You forgot to add a title, location, or time (those are all required fields)', "warning")
+        return dialogue.alert('You forgot to add a title, location, or time (those are all required fields)', "warning")
     }
 
     if(!description.trim().length){
@@ -22,7 +23,7 @@ function postEvent(){
                 return dialogue.alert('Must be logged in as a teacher to post events', 'info')
             }
 
-            if(res.rows[1]["isteacher"] > 0){
+            if(res.rows[0]["isteacher"] > 0){
                 dialogue.alert('Successfully Posted', 'success')
                 db_client.query("INSERT INTO events (Title, Location, Time, Description, Interested) VALUES ($1, $2, $3, $4, $5)" ,[title, location, time, description, 0])
             } else {

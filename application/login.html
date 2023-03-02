@@ -14,9 +14,9 @@
     <body>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../data/setup.js"></script>
-        <script src="./scripts/logout.js"></script>
+        <script src="./logout.js"></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
-            <script src="./scripts/loginButtonName.js"></script>
+            <script src="./loginButtonName.js"></script>
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./profile.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
@@ -49,12 +49,39 @@
         <div class="container py-0 my-0 bg-dark text-white rounded border border-white" id="register-box" style="text-align: center;">
             <div id="vertical-center">
                 <br>
-                <label for="desired-username">Desired Username: </label>
-                <input type="text" id="desired-username" name="desired-username"><br><br>
-                <label for="desired-password">Desired Password: </label>
-                <input type="password" id="desired-password" name="desired-password"><br><br>
-                <label for="desired-confirm-password">Confirm Password: </label>
-                <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
+                <div class="row">
+                    <div class="col">
+                        <label for="fullname">First and last name?: </label>
+                        <input type="text" id="fullname" name="desired-username"><br><br>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="template-sel" style="width: 250px">
+                            <option selected>Select your grade level</option>
+                            <option value="1">Freshman</option>
+                            <option value="2">Sophomore</option>
+                            <option value="3">Junior</option>
+                            <option value="4">Senior</option>
+                            <option value="5">Teacher</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="desired-username">Desired Username: </label>
+                        <input type="text" id="desired-username" name="desired-username"><br><br>
+                    </div>
+
+                    <div class="col">
+                        <label for="desired-password">Desired Password: </label>
+                        <input type="password" id="desired-password" name="desired-password"><br><br>
+                    </div>
+
+                    <div class="col">
+                        <label for="desired-confirm-password">Confirm Password: </label>
+                        <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
+                    </div>
+                </div>
                 
                 <script src="../data/registerUser.js"></script>
 

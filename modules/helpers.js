@@ -1,7 +1,25 @@
 module.exports = {
+    getUserProfile: (username) => {
+        const cache = require('./cache')
+        const db_client = require('./db_client')
+
+
+        db_client.query("SELECT * FROM user_profiles WHERE Username = $1", (cache.getItem("logged_in")), (err, res) => {
+            if(!err){
+                if(res.rows === null){
+                    return;
+                }
+                return res.rows[0]
+            } else {
+                throw err;
+            }
+        })
+    },
+
     update_events: (events_list) => {
         const $ = require('jquery')
         const cache = require('./cache')
+        const helpers = require('./helpers')
         const title = $('#title')
         const location = $('#location')
         const time = $('#time')
@@ -19,6 +37,7 @@ module.exports = {
         events_list.forEach(post => {
             if(counter === 0){
                 if(post["title"] != null){
+                    document.querySelector("#loading-text").style.display = "none"
                     last.style.display = "block"
                     counter += 1;
                     title.html(post["title"])
@@ -28,6 +47,7 @@ module.exports = {
                 }
             } else {
                 if(post["title"] != null){
+                    document.querySelector("#loading-text").style.display = "none"
                     last.style.display = "block"
                     counter += 1
                     event_clone = last.cloneNode(true)
