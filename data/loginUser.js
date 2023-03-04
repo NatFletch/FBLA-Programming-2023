@@ -9,12 +9,16 @@ function onLoginClick(){
     const password = document.getElementById("password").value
 
     if(!username.trim().length || !password.trim().length){
-        return console.log('Forgot something')
+        return dialogue.alert('Please fill out both the username and password fields.', "info")
     }
 
     db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [username], (err, res) => {
-        if(password == res.rows[1]["password"]){
+        if(res.rows === undefined){
+            return dialogue.alert("Incorrect username or password", "danger")
+        }
+        if(password == res.rows[0]["password"]){
             cache.setItem("logged_in", username)
+            cache.setItem("isTeacher", res.rows[0]["isteacher"])
             dialogue.alert('Success logging in!', 'success')
             window.location.replace("../application/index.html")
             return

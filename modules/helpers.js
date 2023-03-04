@@ -38,6 +38,11 @@ module.exports = {
             if(counter === 0){
                 if(post["title"] != null){
                     document.querySelector("#loading-text").style.display = "none"
+
+                    if (cache.getItem("isTeacher")>=1){
+                        document.querySelector("#delete-post-button").style.display = "block"
+                        document.querySelector("#delete-post-button").style.transform = 'translateY(-50%)';
+                    }
                     last.style.display = "block"
                     counter += 1;
                     title.html(post["title"])

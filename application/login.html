@@ -16,9 +16,9 @@
         <script src="../data/setup.js"></script>
         <script src="./logout.js"></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
-            <script src="./loginButtonName.js"></script>
+            <script src="./buttonSetup.js"></script>
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
-            <a href="./profile.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
+            <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
@@ -46,42 +46,31 @@
         <br><b><hr class="text-white"></b><br>
 
         <h5 class="text-white text-center">Don't have an account? Register here</h5>
-        <div class="container py-0 my-0 bg-dark text-white rounded border border-white" id="register-box" style="text-align: center;">
+        <div class="d-flex justify-content-center container py-0 my-0 bg-dark text-white rounded border border-white" id="register-box" style="text-align: center;">
             <div id="vertical-center">
                 <br>
-                <div class="row">
-                    <div class="col">
-                        <label for="fullname">First and last name?: </label>
-                        <input type="text" id="fullname" name="desired-username"><br><br>
-                    </div>
-                    <div class="col">
-                        <select class="form-select" id="template-sel" style="width: 250px">
-                            <option selected>Select your grade level</option>
-                            <option value="1">Freshman</option>
-                            <option value="2">Sophomore</option>
-                            <option value="3">Junior</option>
-                            <option value="4">Senior</option>
-                            <option value="5">Teacher</option>
-                        </select>
-                    </div>
-                </div>
+                <label for="fullname">First and last name?: </label>
+                <input type="text" id="fullname" name="desired-username"><br><br>
 
-                <div class="row">
-                    <div class="col">
-                        <label for="desired-username">Desired Username: </label>
-                        <input type="text" id="desired-username" name="desired-username"><br><br>
-                    </div>
+                <label for="desired-username">Desired Username: </label>
+                <input type="text" id="desired-username" name="desired-username"><br><br>
 
-                    <div class="col">
-                        <label for="desired-password">Desired Password: </label>
-                        <input type="password" id="desired-password" name="desired-password"><br><br>
-                    </div>
+                <label for="desired-password">Desired Password: </label>
+                <input type="password" id="desired-password" name="desired-password"><br><br>
 
-                    <div class="col">
-                        <label for="desired-confirm-password">Confirm Password: </label>
-                        <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
-                    </div>
-                </div>
+                <label for="desired-confirm-password">Confirm Password: </label>
+                <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
+
+                <select class="form-select" id="template-sel" style="width: 250px">
+                    <option selected>Please choose a grade</option>
+                    <option value="1">Freshman</option>
+                    <option value="2">Sophomore</option>
+                    <option value="3">Junior</option>
+                    <option value="4">Senior</option>
+                    <option value="5">Teacher</option>
+                </select>
+
+                <br>
                 
                 <script src="../data/registerUser.js"></script>
 
