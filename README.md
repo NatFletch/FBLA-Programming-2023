@@ -18,7 +18,6 @@ Coming Soon
 There is a lot of stuff I still need to finish up on
  - The ability to find students and give them points
  - Reports at the end of each quarter
- - Profile page
  - A store
  - Compile all this into a binary
  
