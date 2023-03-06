@@ -13,8 +13,8 @@ function onLoginClick(){
     }
 
     db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [username], (err, res) => {
-        if(res.rows === undefined){
-            return dialogue.alert("Incorrect username or password", "danger")
+        if(res.rows[0] === undefined){
+            return dialogue.alert("User does not exist!", "danger")
         }
         if(password == res.rows[0]["password"]){
             cache.setItem("logged_in", username)

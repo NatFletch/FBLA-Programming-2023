@@ -7,13 +7,13 @@ var update_option = "user_profiles"
 
 function update_tables(option){
     if (option == "user_profiles"){
-        // db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, SecurityCode text)", (err, res) => {
-        // TODO for after pre judge ^^^^
-        db_client.query("CREATE TABLE user_profiles (Username text, Password text, Points int, isTeacher int", (err, res) => {
+        db_client.query("DROP TABLE user_profiles")
+        db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, Birthday text, Grade text)", (err, res) => {
             if (err) throw err
             console.log(res)
         })
     } else if(option == "events"){
+        db_client.query("DROP TABLE events")
         db_client.query("CREATE TABLE events (Title text, Location text, Time text, Description text, Interested int)", (err, res) => {
             if (err) throw err
             console.log(res)
@@ -22,9 +22,7 @@ function update_tables(option){
 }
 
 function create_tables(){
-    // db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, SecurityCode text)", (err, res) => {
-    // TODO for after pre judge ^^^^
-    db_client.query("CREATE TABLE user_profiles (Username text, Password text, Points int, isTeacher int", (err, res) => {
+    db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, Birthday date, Grade text)", (err, res) => {
         if (err) throw err
         console.log(res)
     })

@@ -50,7 +50,7 @@
             <div id="vertical-center">
                 <br>
                 <label for="fullname">First and last name?: </label>
-                <input type="text" id="fullname" name="desired-username"><br><br>
+                <input type="text" id="fullname" name="desired-fullname"><br><br>
 
                 <label for="desired-username">Desired Username: </label>
                 <input type="text" id="desired-username" name="desired-username"><br><br>
@@ -61,16 +61,16 @@
                 <label for="desired-confirm-password">Confirm Password: </label>
                 <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
 
-                <select class="form-select" id="template-sel" style="width: 250px">
+                <label for="birthday">Choose Birthday: </label>
+                <input type="date" id="birthday" min="1900-01-01" max="2030-12-31" value="2023-01-01"><br><br>
+
+                <select class="form-select" id="grade-sel" style="width: 250px"> <br><br>
                     <option selected>Please choose a grade</option>
                     <option value="1">Freshman</option>
                     <option value="2">Sophomore</option>
                     <option value="3">Junior</option>
                     <option value="4">Senior</option>
-                    <option value="5">Teacher</option>
                 </select>
-
-                <br>
                 
                 <script src="../data/registerUser.js"></script>
 
