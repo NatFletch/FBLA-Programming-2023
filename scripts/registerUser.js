@@ -34,7 +34,7 @@ function registerClick(){
         return dialogue.alert('That username is not allowed. Please choose a different username', 'warning')
     }
 
-    if(db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [name]) === undefined){
+    if(db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [name]) !== undefined){
         return dialogue.alert("Username already taken", 'danger')
     }
     addUserToDatabase(name, fullname, password, 0, 0, bday, grade)

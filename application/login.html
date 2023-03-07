@@ -13,10 +13,10 @@
 
     <body>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="../data/setup.js"></script>
-        <script src="./logout.js"></script>
+        <script src="../scripts/setup.js"></script>
+        <script src="../scripts/logout.js"></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
-            <script src="./buttonSetup.js"></script>
+            <script src="../scripts/buttonSetup.js"></script>
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
@@ -37,7 +37,7 @@
                 <label for="password">Password: </label>
                 <input type="password" id="password" name="password"><br><br>
 
-                <script src="../data/loginUser.js"></script>
+                <script src="../scripts/loginUser.js"></script>
 
                 <button class="btn btn-primary" id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
             </div>
@@ -49,16 +49,16 @@
         <div class="d-flex justify-content-center container py-0 my-0 bg-dark text-white rounded border border-white" id="register-box" style="text-align: center;">
             <div id="vertical-center">
                 <br>
-                <label for="fullname">First and last name?: </label>
+                <label for="fullname">First and last name?: * </label>
                 <input type="text" id="fullname" name="desired-fullname"><br><br>
 
-                <label for="desired-username">Desired Username: </label>
+                <label for="desired-username">Desired Username: *</label>
                 <input type="text" id="desired-username" name="desired-username"><br><br>
 
-                <label for="desired-password">Desired Password: </label>
+                <label for="desired-password">Desired Password: *</label>
                 <input type="password" id="desired-password" name="desired-password"><br><br>
 
-                <label for="desired-confirm-password">Confirm Password: </label>
+                <label for="desired-confirm-password">Confirm Password: *</label>
                 <input type="password" id="desired-confirm-password" name="desired-confirm-password"><br><br>
 
                 <label for="birthday">Choose Birthday: </label>
@@ -72,7 +72,7 @@
                     <option value="4">Senior</option>
                 </select>
                 
-                <script src="../data/registerUser.js"></script>
+                <script src="../scripts/registerUser.js"></script>
 
                 <button class="btn btn-primary" onclick=registerClick() type="button">Register</button><br><br>
 
