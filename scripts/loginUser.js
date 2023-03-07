@@ -1,5 +1,3 @@
-const { dialog } = require('electron')
-
 function onLoginClick(){
     const db_client = require('../modules/db_client')
     const dialogue = require('../modules/dialogue')

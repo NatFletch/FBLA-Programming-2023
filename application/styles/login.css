@@ -14,6 +14,10 @@ body {
   width: 100%;
 }
 
+.links {
+  width: 90%
+}
+
 input {
   display: block;
 }
@@ -39,18 +43,30 @@ input[type="password"]:focus {
 }
 
 #username {
-  background-image: url(/images/user-interface.png);
+  background-image: url(../../images/user-interface.png);
   background-repeat: no-repeat;
   background-position: 13px;
   text-indent: 17px;
 }
 
 #password {
-  background-image: url(images/password.png);
+  background-image: url(../../images/download.png);
   background-repeat: no-repeat;
   background-position: 13px;
   text-indent: 17px;
 }
+
+#login {
+  padding: 10px;
+  width: 319px;
+  height: 40px;
+  text-align: center;
+  margin: 20px auto;
+  border: 0;
+  border-radius: 11px;
+  outline: none;
+}
+
 #forgotpass {
   display: inline;
   font-size: 11px;
@@ -81,26 +97,6 @@ input[type="password"]:focus {
   font-weight: 300;
   font-size: 13px;
   vertical-align: middle;
-}
-
-input[type="submit"] {
-  font-family: Montserrat;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 0px;
-  margin-left: 10px;
-  margin-top: 20px;
-  padding: 10px;
-  width: 131px;
-  height: 46px;
-  background-color: #2f2d2d;
-  border-radius: 11px;
-  border: 0;
-  color: white;
 }
 
 .logo {
