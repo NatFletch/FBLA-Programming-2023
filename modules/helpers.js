@@ -4,7 +4,7 @@ module.exports = {
         const db_client = require('./db_client')
 
 
-        db_client.query("SELECT * FROM user_profiles WHERE Username = $1", (cache.getItem("logged_in")), (err, res) => {
+        db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [username], (err, res) => {
             if(!err){
                 if(res.rows === null){
                     return;
