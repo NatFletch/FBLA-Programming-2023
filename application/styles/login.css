@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap");
+
+body {
+  margin: 10;
+  padding: 0px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.containerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+input {
+  display: block;
+}
+
+form input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  width: 319px;
+  height: 40px;
+  text-align: center;
+  margin: 20px auto;
+  background: #efefef;
+  border: 0;
+  border-radius: 11px;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: black;
+  box-shadow: 0 0 0 1.2px black;
+}
+
+#username {
+  background-image: url(/images/user-interface.png);
+  background-repeat: no-repeat;
+  background-position: 13px;
+  text-indent: 17px;
+}
+
+#password {
+  background-image: url(images/password.png);
+  background-repeat: no-repeat;
+  background-position: 13px;
+  text-indent: 17px;
+}
+#forgotpass {
+  display: inline;
+  font-size: 11px;
+  margin-left: 110px;
+  text-decoration: none;
+  color: #000000;
+}
+
+#new-user {
+  display: grid;
+  font-size: 11px;
+  margin-top: 10px;
+  margin-left: 5px;
+  text-decoration: none;
+  display: inline;
+  text-align: center;
+  color: #000000;
+}
+
+#remember-me {
+  display: inline;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+#rememberme {
+  display: inline;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+input[type="submit"] {
+  font-family: Montserrat;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 0px;
+  margin-left: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  width: 131px;
+  height: 46px;
+  background-color: #2f2d2d;
+  border-radius: 11px;
+  border: 0;
+  color: white;
+}
+
+.logo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 0px;
+  text-align: center;
+  padding-bottom: 10px;
+}
