@@ -5,7 +5,7 @@
         <title>Log In</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./styles/default-dark.css">
+        <link rel="stylesheet" href="./styles/login.css "> <!-- changed the css here -->
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,15 +28,8 @@
             <br>
         </div>
 
-        <h5 class="text-white text-center" id="login-label">Log In</h5>
-        <div class="container border border-white rounded shadow my-0 py-0 text-white bg-dark" id="login-box" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
-            <div id="vertical-center">
-                <br>
-                <label for="username">Username: </label>
-                <input type="text" id="username" name="username"><br><br>
-                <label for="password">Password: </label>
-                <input type="password" id="password" name="password"><br><br>
 
+<<<<<<< Updated upstream
                 <script src="../scripts/loginUser.js"></script>
 
                 <button class="btn btn-primary" id="login" onClick="onLoginClick()" type="button">Log In</button><br><br>
@@ -78,6 +71,36 @@
 
             </div>
         </div>
+=======
+        <!-- come back here in a bit  https://codesandbox.io/s/laughing-http-1tu349?file=/style.css -->
+        <div class="containerr" style="text-align: center;">
+            <div class="container">
+                <div class="login">
+                  <p class="logo">School Tracking</p>
+                  <form class="login-form" action="#" method="POST">
+                    <input id="username" type="text" name="name" placeholder="username" autofocus="autofocus" />
+                    <input
+                      id="password"
+                      type="password"
+                      name="password"
+                      placeholder="password"
+                    />
+
+                    <script src="../data/loginUser.js"></script> <!-- does this work? -->
+
+                    <!-- <input type="checkbox" id="remember-me" name="remember-me" value="true"></input>
+                    <p id="rememberme">Remember Me</p> 
+                    <a id="forgotpass" href="#">Forgot Password?</a>
+                    <input type="submit" value="Login" /> -->
+                    <a id="new-user" href="./new_user.html">New User? Sign Up</a>
+          
+                  </form>
+                </div>
+
+        <br><b><hr class="text-white"></b><br>
+
+   
+>>>>>>> Stashed changes
 
         <div class="cotainer-fluid" id="footer-bounds"></div>
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
