@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 800px;
   width: 100%;
 }
 
@@ -56,7 +56,7 @@ input[type="password"]:focus {
   text-indent: 17px;
 }
 
-#login {
+#login-button {
   padding: 10px;
   width: 319px;
   height: 40px;
@@ -103,7 +103,6 @@ input[type="password"]:focus {
   font-style: normal;
   font-weight: bold;
   font-size: 35px;
-  line-height: 0px;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }

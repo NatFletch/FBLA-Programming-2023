@@ -4,7 +4,11 @@ html, body {
 }
 
 #topbar {
+  display: block;
+  margin-top: 0;
   overflow: hidden;
+  padding: 0px;
+  margin-bottom: 0px;
 }
 
 #topbar a{

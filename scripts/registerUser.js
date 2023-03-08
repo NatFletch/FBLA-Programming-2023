@@ -1,5 +1,3 @@
-const dialogue = require('../modules/dialogue')
-
 function registerClick(){
     const dialogue = require('../modules/dialogue')
     const name = document.getElementById('desired-username').value
@@ -9,23 +7,18 @@ function registerClick(){
     const grade = document.getElementById("grade-sel").options[document.getElementById("grade-sel").selectedIndex].text
     const bday = document.getElementById("birthday").value
 
-
+    console.log("hhh")
     if(!fullname.trim().length){
         return dialogue.alert("Full name is required. Please fill out the full name box", 'info')
-    }
-    
-    if(!name.trim().length){
+    } else if(!name.trim().length){
         return dialogue.alert('Username field is required. Please fill out all the boxes', 'info')
-    }
-    
-    if(!password.trim().length){
+    } else if(!password.trim().length){
         return dialogue.alert('Password field is required. Please fill out all the boxes', 'info')
-    }
-
-    if(!confirm_password.trim().length){
+    } else if(!confirm_password.trim().length){
         return dialogue.alert('Confirm password field is required. Please fill out all the boxes', 'info')
     }
 
+    console.log('a')
     if(password != confirm_password){
         return dialogue.alert('Passwords do not match', 'warning')
     }
