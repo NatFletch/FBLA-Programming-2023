@@ -26,3 +26,15 @@ function onLoginClick(){
     })
 
 }
+
+document.getElementById("username").onkeydown = function(e){
+    if(e.keyCode == 13){
+        onLoginClick()
+    }
+}
+
+document.getElementById("password").onkeydown = function(e){
+    if(e.keyCode == 13){
+        onLoginClick()
+    }
+}

@@ -7,7 +7,6 @@ function registerClick(){
     const grade = document.getElementById("grade-sel").options[document.getElementById("grade-sel").selectedIndex].text
     const bday = document.getElementById("birthday").value
 
-    console.log("hhh")
     if(!fullname.trim().length){
         return dialogue.alert("Full name is required. Please fill out the full name box", 'info')
     } else if(!name.trim().length){
@@ -40,4 +39,28 @@ function addUserToDatabase(username, name_full, password, points, teacher, birth
     db_client.query('INSERT INTO user_profiles (Username, FullName, Password, Points, isTeacher, Birthday, Grade) VALUES ($1, $2, $3, $4, $5, $6, $7)', [username, name_full, password, points, teacher, birthday, grade])
     window.location.replace("../application/index.html")
     window.localStorage.setItem("logged_in", username)
+}
+
+document.getElementById("desired-username").onkeydown = function(e){
+    if(e.keyCode == 13){
+        onLoginClick()
+    }
+}
+
+document.getElementById("desired-password").onkeydown = function(e){
+    if(e.keyCode == 13){
+        onLoginClick()
+    }
+}
+
+document.getElementById("desired-confirm-password").onkeydown = function(e){
+    if(e.keyCode == 13){
+        onLoginClick()
+    }
+}
+
+document.getElementById("fullname").onkeydown = function(e){
+    if(e.keyCode == 13){
+        onLoginClick()
+    }
 }
