@@ -4,6 +4,7 @@
         <title>FBLA 2023</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="./styles/default-dark.css">
+        <link rel="stylesheet" href="./styles/store.css"> <!-- extra css, may want to compress later -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
@@ -26,6 +27,44 @@
         <div id="divider" class="bg-#45484a">
             <br>
         </div>
+
+        </head>
+        <body>
+            
+            <div class="container">
+                <h1>Shop</h1>
+
+                <div class="cart-modal">
+                    <h2>Shopping Cart</h2>
+                    <ul class="cart-items"></ul>
+                    <p>Total: <span class="cart-total">0</span> Points</p>
+                    <button class="checkout">Checkout</button>
+                  </div>
+                
+                <div class="product">
+                    <img src="../../FBLA-Programming-2023/images/prize1.jpg" alt="Product 1">
+                    <h3>Smithville High School T-Shirt</h3>
+                    <p>A branded tee to show your Warrior Pride!</p>
+                    <p>10 Points</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../../FBLA-Programming-2023/images/prize2.jpg" alt="Product 2">
+                    <h3>Snack Voucher</h3>
+                    <p>Valid for 1 Small Drink or Candy Bar @ The Warrior Grind </p>
+                    <p>5 Points</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../../FBLA-Programming-2023/images/prize3.jpg" alt="Product 3">
+                    <h3>Smithville Branded Pen</h3>
+                    <p>An engraved metal pen with the Warrior Logo embezzled.</p>
+                    <p>2 Points</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+
+
 
         <div class="cotainer-fluid" id="footer-bounds"></div>
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
