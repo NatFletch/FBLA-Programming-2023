@@ -30,37 +30,41 @@
 
         </head>
         <body>
-            
+
             <div class="container">
                 <h1>Shop</h1>
+                <p>Here you can spend your points on cool prizes!</p>
 
                 <div class="cart-modal">
                     <h2>Shopping Cart</h2>
                     <ul class="cart-items"></ul>
                     <p>Total: <span class="cart-total">0</span> Points</p>
-                    <button class="checkout">Checkout</button>
-                  </div>
+                    <ul id="cart-items"> </ul>
+                    <button type"button" class="btn btn-outline-success">Checkout</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="clearCart()">Clear Cart</button>
+
+                </div>
                 
                 <div class="product">
                     <img src="../images/prize1.jpg" alt="Product 1">
                     <h3>Smithville High School T-Shirt</h3>
                     <p>A branded tee to show your Warrior Pride!</p>
                     <p>10 Points</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart(1)">Add to Cart</button>
                 </div>
                 <div class="product">
                     <img src="../images/prize2.jpg" alt="Product 2">
                     <h3>Snack Voucher</h3>
                     <p>Valid for 1 Small Drink or Candy Bar @ The Warrior Grind.</p>
                     <p>5 Points</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart(2)" >Add to Cart</button>
                 </div>
                 <div class="product">
                     <img src="../images/prize3.jpg" alt="Product 3">
                     <h3>Smithville Branded Pen</h3>
                     <p>An engraved metal pen with the Warrior Logo embezzled.</p>
                     <p>2 Points</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart(3)">Add to Cart</button>
                 </div>
             </div>
 
@@ -71,7 +75,12 @@
                 <p>Nathan Fletcher 2022-2023</p>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
+
+        
             </div>
         </div>
+
+        <script src="../modules/store.js"></script>
     </body>
-</html>
+
+    </html>
