@@ -17,7 +17,6 @@ function registerClick(){
         return dialogue.alert('Confirm password field is required. Please fill out all the boxes', 'info')
     }
 
-    console.log('a')
     if(password != confirm_password){
         return dialogue.alert('Passwords do not match', 'warning')
     }
@@ -33,34 +32,10 @@ function registerClick(){
 }
 
 function addUserToDatabase(username, name_full, password, points, teacher, birthday, grade){
-    console.log(username, name_full, password, points, teacher, birthday, grade)
     const db_client = require('../modules/db_client')
     dialogue.alert('Successfully made account', 'success')
     db_client.query('INSERT INTO user_profiles (Username, FullName, Password, Points, isTeacher, Birthday, Grade) VALUES ($1, $2, $3, $4, $5, $6, $7)', [username, name_full, password, points, teacher, birthday, grade])
     window.location.replace("../application/index.html")
     window.localStorage.setItem("logged_in", username)
-}
-
-document.getElementById("desired-username").onkeydown = function(e){
-    if(e.keyCode == 13){
-        onLoginClick()
-    }
-}
-
-document.getElementById("desired-password").onkeydown = function(e){
-    if(e.keyCode == 13){
-        onLoginClick()
-    }
-}
-
-document.getElementById("desired-confirm-password").onkeydown = function(e){
-    if(e.keyCode == 13){
-        onLoginClick()
-    }
-}
-
-document.getElementById("fullname").onkeydown = function(e){
-    if(e.keyCode == 13){
-        onLoginClick()
-    }
+    window.localStorage.setItem('isTeacher', 0)
 }
