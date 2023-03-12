@@ -15,7 +15,7 @@
     <body>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../scripts/setup.js"></script>
-        <script src="../scripts/logout.js"></script>
+        <script src="../scripts/loginManager.js"></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
@@ -40,8 +40,6 @@
                     <form class="login-form" action="#" method="POST">
                         <input id="username" type="text" name="name" placeholder="username" autofocus="autofocus" />
                         <input id="password" type="password" name="password" placeholder="password"/>
-
-                        <script src="../scripts/loginUser.js"></script> <!-- does this work? -->
 
                         <div class="container">
                             <button type="button" id="login-button"  onclick="onLoginClick()" class="btn btn-primary border border-primary">Log In</button>
