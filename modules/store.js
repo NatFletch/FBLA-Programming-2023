@@ -56,3 +56,35 @@ function clearCart() {
   displayCart();
 }
 
+require('jquery')(document).ready(($) =>{
+  //modules
+  const db_client = require("../modules/db_client")
+  const cache = require("../modules/cache")
+  //elements
+  const username = $("#username")
+  const points = $("#points")
+
+  db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err, res) => {
+    if(!err){
+        var isTeacher = res.rows[0].isteacher
+        if(isTeacher == 0){
+            user_role = "Student"
+        } else if(isTeacher == 1){
+            user_role = "Teacher"
+        } else if(isTeacher == 2) {
+            user_role = "Admin"
+        }
+
+        // if(res.rows[0].items === undefined){
+        //     items.html("No Items")
+        // } else {
+        //     items.html("Items: " + res.rows[0].items)
+        // }
+        username.html(user)
+        points.html("Points: " + res.rows[0].points)
+        
+    } else {
+        throw err
+    }
+})
+})
