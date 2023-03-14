@@ -11,6 +11,9 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  - Run `npm install` to install all neccessary project dependencies
  - Add or export an environment variable nanmed `FBLA_23_DATABASE` with your Postgres URL
  - Start the program via `npm start`
+
+# Building
+Building the code is very simple. As long as all the dependencies are installed you simply type `npm run make` and it will generate an `out` folder for you. Currently supported is Squirrel for Windows (barely). Work for MacOS `pkg` and `deb` for Debian and `rpm` is being worked on
  
 Coming Soon
 

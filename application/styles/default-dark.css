@@ -18,6 +18,19 @@ html, body {
   text-decoration: none;
   font-size: 17px;
 }
+
+#topbar input{
+  background-image: url('../../images/search.png');
+  background-repeat: no-repeat;
+  background-position: 98%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-align: left;
+  padding: 4px 2px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
 #topbar #login {
   float: right;
 }

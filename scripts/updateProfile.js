@@ -12,18 +12,23 @@ require('jquery')(document).ready(($) =>{
     const items = $("#items")
 
     var user_role
+    var user;
+    const url_params = new URLSearchParams(window.location.search)
+    console.log(url_params.get("user"))
+    if(url_params.get('user') === undefined || url_params.get('user') === null){
+        console.log('1')
+        user = cache.getItem("logged_in")
+    } else {
+        user = url_params.get('user')
+    }
 
     if(cache.getItem("logged_in")==null || cache.getItem("logged_in") == "none"){
         window.location.replace("./login.html")
     }
 
-    db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [cache.getItem("logged_in")], (err, res) => {
+    db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err, res) => {
         if(!err){
-            console.log(cache.getItem("logged_in"))
-            console.log(res)
-
-            var isTeacher = cache.getItem("isTeacher")
-            console.log(isTeacher)
+            var isTeacher = res.rows[0].isteacher
             if(isTeacher == 0){
                 user_role = "Student"
             } else if(isTeacher == 1){
@@ -37,7 +42,7 @@ require('jquery')(document).ready(($) =>{
             } else {
                 items.html("Items: " + res.rows[0].items)
             }
-            username.html(cache.getItem("logged_in"))
+            username.html(user)
             fullname.html("Name: " + res.rows[0].fullname)
             grade.html("Grade: " + res.rows[0].grade)
             birthday.html("Birthday: " + res.rows[0].birthday)
