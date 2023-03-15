@@ -72,7 +72,16 @@ db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err,
         }
 
         clearCart();
-        // i mean it does work but theres not any way to get the prizes lollll
+        
+        //add prizes to user's inventory
+        // im not sure if this works
+        db_client.query("INSERT INTO user_inventory (Username, ItemID) VALUES ($1, $2)", [user, cartItems], (err, res) => {
+          if (err) {
+            throw err;
+          }
+        });
+
+
         window.alert("Checkout successful!");
       });
     }
