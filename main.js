@@ -83,7 +83,7 @@ const createWindow = () => {
         shell.openExternal(url);
         return { action: 'deny' };
     });
-    win.setMenu(null);
+    //win.setMenu(null);
     win.loadFile('./application/index.html');
   }
 

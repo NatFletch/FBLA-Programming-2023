@@ -37,11 +37,14 @@ require('jquery')(document).ready(($) =>{
                 user_role = "Admin"
             }
 
-            if(res.rows[0].items === undefined){
-                items.html("No Items")
-            } else {
-                items.html("Items: " + res.rows[0].items)
-            }
+            db_client.query("SELECT * FROM user_inventory WHERE Username = $1", [user], (err, res) => {
+                if(res.rows[0] === undefined){
+                    items.html("No Items")
+                } else {
+                    console.log(res.rows[0].items)
+                    items.html("Items: " + res.rows[0].items)
+                }
+            })
             username.html(user)
             fullname.html("Name: " + res.rows[0].fullname)
             grade.html("Grade: " + res.rows[0].grade)

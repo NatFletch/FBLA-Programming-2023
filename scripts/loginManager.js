@@ -1,4 +1,19 @@
+
 function registerClick(){
+    const dialogue = require('../modules/dialogue')
+    const name = document.getElementById('desired-username').value
+    const db_client = require('../modules/db_client')
+    db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [name], (err, res) => {
+        if(res.rowCount != 0){
+            userExist = true
+            return dialogue.alert("Username is already taken!", 'danger')
+        } else {
+            registerClick2()
+        }
+    })
+}
+
+function registerClick2(){
     const dialogue = require('../modules/dialogue')
     const name = document.getElementById('desired-username').value
     const password = document.getElementById('desired-password').value
@@ -25,9 +40,6 @@ function registerClick(){
         return dialogue.alert('That username is not allowed. Please choose a different username', 'warning')
     }
 
-    if(db_client.query("SELECT * FROM user_profiles WHERE Username=$1", [name]) !== undefined){
-        return dialogue.alert("Username already taken", 'danger')
-    }
     addUserToDatabase(name, fullname, password, 0, 0, bday, grade)
 }
 
@@ -60,15 +72,17 @@ function onLoginClick(){
 
 }
 
-document.getElementById("username").onkeydown = function(e){
-    if(e.keyCode == 13){
-        onLoginClick()
+window.onload = function(){
+    document.getElementById("username").onkeydown = function(e){
+        if(e.keyCode == 13){
+            onLoginClick()
+        }
     }
-}
-
-document.getElementById("password").onkeydown = function(e){
-    if(e.keyCode == 13){
-        onLoginClick()
+    
+    document.getElementById("password").onkeydown = function(e){
+        if(e.keyCode == 13){
+            onLoginClick()
+        }
     }
 }
 
@@ -81,9 +95,10 @@ function logout(){
 
 function addUserToDatabase(username, name_full, password, points, teacher, birthday, grade){
     const db_client = require('../modules/db_client')
+    const dialogue = require('../modules/dialogue')
     dialogue.alert('Successfully made account', 'success')
-    db_client.query('INSERT INTO user_profiles (Username, FullName, Password, Points, isTeacher, Birthday, Grade) VALUES ($1, $2, $3, $4, $5, $6, $7)', [username, name_full, password, points, teacher, birthday, grade])
+    db_client.query('INSERT INTO user_profiles VALUES ($1, $2, $3, $4, $5, $6, $7)', [username, name_full, password, points, teacher, birthday, grade])
     window.location.replace("../application/index.html")
     window.localStorage.setItem("logged_in", username)
-    window.localStorage.setItem('isTeacher', 0)
+    window.localStorage.setItem("isTeacher", 0)
 }
