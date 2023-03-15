@@ -83,7 +83,6 @@ db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err,
           
         });
 
-
         window.alert("Checkout successful!");
       });
     }
@@ -113,4 +112,3 @@ $(document).ready(function(){
       throw err;
     }
   });
-});
