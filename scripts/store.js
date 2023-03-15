@@ -72,10 +72,34 @@ db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err,
         }
 
         clearCart();
+        // i mean it does work but theres not any way to get the prizes lollll
         window.alert("Checkout successful!");
       });
     }
   } else {
     throw err;
   }
+});
+
+// test this !
+$(document).ready(function(){
+  const db_client = require("../modules/db_client");
+  const cache = require("../modules/cache");
+  const pointsDisplay = $("#points");
+
+  var user;
+
+  if(cache.getItem("logged_in") == null || cache.getItem("logged_in") == "none"){
+    window.location.replace("./login.html")
+  } else {
+    user = cache.getItem("logged_in");
+  }
+
+  db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], function(err, res) {
+    if(!err){
+      pointsDisplay.html("Points: " + res.rows[0].points);
+    } else {
+      throw err;
+    }
+  });
 });
