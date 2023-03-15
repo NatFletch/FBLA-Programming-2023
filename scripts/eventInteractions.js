@@ -107,6 +107,12 @@ function interestClicked(){
 }
 
 function selectPostDelete(element){
-    const cache = require('../modules/db_client')
-    cache.setItem("selectedEvent", element.parentNode)
+    const cache = require('../modules/cache')
+    cache.setItem("selectedEvent", element.parentElement.id)
+}
+
+function deletePost(id){
+    require('../modules/db_client').query("DELETE FROM events WHERE Title=$1", [document.getElementById(id).querySelector("#title").innerHTML])
+    document.getElementById(id).remove()
+    require('../modules/dialogue').alert("Succesfully removed post", 'success')
 }
