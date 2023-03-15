@@ -45,7 +45,12 @@ require('jquery')(document).ready(($) =>{
             grade.html("Grade: " + res.rows[0].grade)
             birthday.html("Birthday: " + res.rows[0].birthday)
             role.html("Role: " + user_role)
-            points.html("Points: " + res.rows[0].points)
+            if(isTeacher > 0){
+                points.html("Points: " + res.rows[0].points + ' <button type="button" class="btn btn-success">+</button>')
+            } else {
+                points.html("Points: " + res.rows[0].points)
+            }
+            
             
         } else {
             throw err

@@ -2,9 +2,12 @@
 <html lang="en-US">
     <head>
         <title>FBLA 2023</title>
+        <style>
+            ::-webkit-scrollbar {         display: none;       } /* disables scrollbar, looks a lot better and fixes some issues */
+        </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="./styles/default-dark.css">
-        <link rel="stylesheet" href="./styles/store.css"> <!-- extra css, may want to compress later -->
+        <link rel="stylesheet" href="./styles/store.css"> <!-- extra css, may want to compress later !-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
@@ -33,9 +36,10 @@
         </head>
         <body>
 
-            <div class="container">
+            <div class="containerr">
                 <h1>Shop</h1>
                 <p>Here you can spend your points on cool prizes!</p>
+                <p id="Points"></p>
 
                 <div class="cart-modal">
                     <h2>Shopping Cart</h2>
@@ -64,7 +68,7 @@
                 <div class="product">
                     <img src="../images/prize3.jpg" alt="Product 3">
                     <h3>Smithville Branded Pen</h3>
-                    <p>An engraved metal pen with the Warrior Logo embezzled.</p>
+                    <p>An engraved metal pen with the Warrior Logo etched on.</p>
                     <p>2 Points</p>
                     <button onclick="addToCart(3)">Add to Cart</button>
                 </div>
@@ -82,7 +86,7 @@
             </div>
         </div>
 
-        <script src="../modules/store.js"></script>
+        <script src="../scripts/store.js"></script>
     </body>
 
     </html>
