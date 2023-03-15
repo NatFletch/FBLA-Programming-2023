@@ -127,4 +127,3 @@ $(document).ready(function(){
       throw err;
     }
   });
-});
