@@ -56,35 +56,26 @@ function clearCart() {
   displayCart();
 }
 
-require('jquery')(document).ready(($) =>{
-  //modules
-  const db_client = require("../modules/db_client")
-  const cache = require("../modules/cache")
-  //elements
-  const username = $("#username")
-  const points = $("#points")
 
-  db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err, res) => {
-    if(!err){
-        var isTeacher = res.rows[0].isteacher
-        if(isTeacher == 0){
-            user_role = "Student"
-        } else if(isTeacher == 1){
-            user_role = "Teacher"
-        } else if(isTeacher == 2) {
-            user_role = "Admin"
+db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err, res) => {
+  if (!err) {
+    const userPoints = res.rows[0].points;
+    const totalCost = cartItems.reduce((total, item) => total + item.price, 0);
+
+    if (userPoints < totalCost) {
+      window.alert("Insufficient points for checkout!");
+    } else {
+      const remainingPoints = userPoints - totalCost;
+      db_client.query("UPDATE user_profiles SET points = $1 WHERE Username = $2", [remainingPoints, user], (err, res) => {
+        if (err) {
+          throw err;
         }
 
-        // if(res.rows[0].items === undefined){
-        //     items.html("No Items")
-        // } else {
-        //     items.html("Items: " + res.rows[0].items)
-        // }
-        username.html(user)
-        points.html("Points: " + res.rows[0].points)
-        
-    } else {
-        throw err
+        clearCart();
+        window.alert("Checkout successful!");
+      });
     }
-})
-})
+  } else {
+    throw err;
+  }
+});
