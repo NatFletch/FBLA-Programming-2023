@@ -14,9 +14,7 @@ require('jquery')(document).ready(($) =>{
     var user_role
     var user;
     const url_params = new URLSearchParams(window.location.search)
-    console.log(url_params.get("user"))
-    if(url_params.get('user') === undefined || url_params.get('user') === null){
-        console.log('1')
+    if(url_params.get('user') === null){
         user = cache.getItem("logged_in")
     } else {
         user = url_params.get('user')

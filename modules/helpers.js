@@ -31,7 +31,7 @@ module.exports = {
         var counter = 0;
 
         if(events_list === undefined){
-
+            document.querySelector("#loading-header").innerHTML = "No events planned at the moment."
         }
 
         events_list.forEach(post => {
@@ -42,6 +42,7 @@ module.exports = {
                     if (cache.getItem("isTeacher")>=1){
                         document.querySelector("#delete-post-button").style.display = "block"
                         document.querySelector("#delete-post-button").style.transform = 'translateY(-50%)';
+                        document.querySelector("#new-post").style.display = "block"
                     }
                     last.style.display = "block"
                     counter += 1;
