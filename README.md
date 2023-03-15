@@ -13,16 +13,14 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
  - Start the program via `npm start`
 
 # Building
-Building the code is very simple. As long as all the dependencies are installed you simply type `npm run make` and it will generate an `out` folder for you. Currently supported is Squirrel for Windows (barely). Work for MacOS `pkg` and `deb` for Debian and `rpm` is being worked on
+Building the code is very simple. As long as all the dependencies are installed you simply type `npm run make` and it will generate an `out` folder for you. Currently supported is Squirrel for Windows. Work for MacOS `dmg` and `deb` for Debian and `rpm` is being worked on
  
 Coming Soon
 
 # TODO
 There is a lot of stuff I still need to finish up on
- - The ability to find students and give them points
  - Reports at the end of each quarter
  - A store
- - Compile all this into a binary
  
  If all goes well then the next step is to:
  - Do leaderboard
