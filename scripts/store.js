@@ -71,14 +71,16 @@ db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err,
           throw err;
         }
 
-        clearCart();
-        
         //add prizes to user's inventory
         // im not sure if this works
         db_client.query("INSERT INTO user_inventory (Username, ItemID) VALUES ($1, $2)", [user, cartItems], (err, res) => {
           if (err) {
             throw err;
           }
+
+          //clears cart
+          clearCart();
+          
         });
 
 
