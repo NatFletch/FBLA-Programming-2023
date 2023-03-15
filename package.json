@@ -29,6 +29,8 @@
   },
   "homepage": "https://github.com/NatFletch/FBLA-Programming-2023#readme",
   "dependencies": {
+    "@electron-forge/maker-dmg": "^6.0.5",
+    "@electron-forge/maker-flatpak": "^6.0.5",
     "@electron-forge/maker-pkg": "^6.0.5",
     "bootstrap": "^5.2.3",
     "electron-squirrel-startup": "^1.0.0",

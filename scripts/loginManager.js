@@ -73,15 +73,18 @@ function onLoginClick(){
 }
 
 window.onload = function(){
-    document.getElementById("username").onkeydown = function(e){
-        if(e.keyCode == 13){
-            onLoginClick()
-        }
-    }
     
-    document.getElementById("password").onkeydown = function(e){
-        if(e.keyCode == 13){
-            onLoginClick()
+    if(window.location.href.substr(window.location.href.lastIndexOf("/")+1) == 'login.html'){
+        document.getElementById("username").onkeydown = function(e){
+            if(e.keyCode == 13){
+                onLoginClick()
+            }
+        }
+        
+        document.getElementById("password").onkeydown = function(e){
+            if(e.keyCode == 13){
+                onLoginClick()
+            }
         }
     }
 }
