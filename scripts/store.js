@@ -33,6 +33,7 @@ function displayCart() {
 
   cartItemsElem.innerHTML = cartItemsList;
   cartTotalElem.textContent = cartTotal;
+  console.log(cartItemsList)
 }
 
 // there is definitely a better way to do this... oh well
@@ -61,6 +62,7 @@ function clearCart() {
 function checkout() {
   const db_client = require("../modules/db_client");
   const cache = require("../modules/cache");
+  const dialogue = require('../modules/dialogue')
 
   var user;
   
@@ -73,12 +75,20 @@ function checkout() {
   db_client.query("SELECT * FROM user_profiles WHERE Username = $1", [user], (err, res) => {
     if (!err) {
       const userPoints = res.rows[0].points;
-      const totalCost = cartItems.reduce((total, item) => total + item.price, 0);
+      var totalCost = 0
+
+      var prettyItems = []
+
+      cartItems.forEach(item => {
+        totalCost += getItemPoints(item)
+        prettyItems.push(getItemName(item))
+      })
 
       if (userPoints < totalCost) {
         window.alert("Insufficient points for checkout!");
       } else {
         const remainingPoints = userPoints - totalCost;
+        console.log(remainingPoints)
         db_client.query("UPDATE user_profiles SET points = $1 WHERE Username = $2", [remainingPoints, user], (err, res) => {
           if (err) {
             throw err;
@@ -86,7 +96,7 @@ function checkout() {
 
           //add prizes to user's inventory
           // im not sure if this works
-          db_client.query("INSERT INTO user_inventory (Username, ItemID) VALUES ($1, $2)", [user, cartItems], (err, res) => {
+          db_client.query("INSERT INTO user_inventory (Username, Items) VALUES ($1, $2)", [user, prettyItems], (err, res) => {
             if (err) {
               throw err;
             }
@@ -97,7 +107,7 @@ function checkout() {
           });
 
 
-          window.alert("Checkout successful!");
+          dialogue.alert("Checkout successful!", 'success');
         });
       }
     } else {
@@ -107,7 +117,7 @@ function checkout() {
 }
 
 // test this !
-$(document).ready(function(){
+require("jquery")(document).ready(function($){
   const db_client = require("../modules/db_client");
   const cache = require("../modules/cache");
   const pointsDisplay = $("#points");
