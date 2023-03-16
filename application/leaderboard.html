@@ -15,6 +15,7 @@
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/searchQuery.js"></script>
         <script src="../scripts/loginManager.js"></script>
+        <script src="../scripts/leaderboard.js"></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
@@ -30,7 +31,24 @@
             <br>
         </div>
 
-        
+
+        <div id="leaderboard-container">
+
+            <table id="leaderboard-table" class="table table-striped table-dark">
+            <thead class="thead-dark">
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+
+             <tbody id="leaderboard-body">
+                <!-- hopefully everything fills here -->
+            </tbody>          
+            </table>
+
+        </div>
 
 
         <div class="cotainer-fluid" id="footer-bounds"></div>
