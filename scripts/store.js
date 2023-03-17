@@ -125,7 +125,9 @@ require("jquery")(document).ready(function($){
   var user;
 
   if(cache.getItem("logged_in") == null || cache.getItem("logged_in") == "none"){
-    window.location.replace("./login.html")
+    // window.location.replace("./login.html")
+    // maybe do something here later, but for now just leave it blank
+    // i dont like the idea of redirecting to login page when the user is not logged in, the shop is cool to look at even if you are not logged in
   } else {
     user = cache.getItem("logged_in");
   }
