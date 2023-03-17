@@ -97,7 +97,7 @@ function checkout() {
           //add prizes to user's inventory
           // im not sure if this works
 
-          db_client.query("INSERT INTO user_inventory (Username, Item) VALUES ($1, $2)", [user, prettyItems], (err, res) => {
+          db_client.query("UPDATE user_inventory (Username, Item) VALUES ($1, $2)", [user, prettyItems], (err, res) => {
             if (err) {
               throw err;
             }
@@ -108,7 +108,7 @@ function checkout() {
           });
 
 
-          dialogue.alert("Checkout successful!", 'success');
+          dialogue.alert("Checkout successful! Please talk to the front office to claim your prize.", 'success');
         });
       }
     } else {
