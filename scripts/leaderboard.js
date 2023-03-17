@@ -1,3 +1,5 @@
+// this is a mess come back to this
+
 const getUsersWithPoints = async() => {;
     try {
       const { rows } =  db_client.query(`
