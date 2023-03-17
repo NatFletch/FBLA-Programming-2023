@@ -15,7 +15,6 @@
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/searchQuery.js"></script>
         <script src="../scripts/loginManager.js"></script>
-        <script src="../scripts/leaderboard.js"></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
@@ -23,6 +22,7 @@
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
+            <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Admin</a>
             <input type="text" id="searchbar" name="search-bar">
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
@@ -50,6 +50,7 @@
 
         </div>
 
+        </div>
 
         <div class="cotainer-fluid" id="footer-bounds"></div>
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
@@ -58,7 +59,23 @@
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
             </div>
         </div>
-
+        
         <script src="../scripts/leaderboard.js"></script>
+        
+        <script>
+
+            const adminButton = document.getElementById('admin-button');
+            adminButton.style.display = 'none'; // hide the button by default
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const cache = require('../modules/cache')
+                const dialogue = require('../modules/dialogue')
+                const user = cache.get('user')
+                if (user.isTeacher >= 1) {
+                  document.querySelector('.admin-button').style.display = 'block'
+                }
+              })
+              
+        </script>
     </body>
 </html>

@@ -100,8 +100,13 @@ function addUserToDatabase(username, name_full, password, points, teacher, birth
     const db_client = require('../modules/db_client')
     const dialogue = require('../modules/dialogue')
     dialogue.alert('Successfully made account', 'success')
-    db_client.query('INSERT INTO user_profiles VALUES ($1, $2, $3, $4, $5, $6, $7)', [username, name_full, password, points, teacher, birthday, grade])
-    window.location.replace("../application/index.html")
-    window.localStorage.setItem("logged_in", username)
-    window.localStorage.setItem("isTeacher", 0)
+    db_client.query("INSERT INTO user_profiles VALUES ($1, $2, $3, $4, $5, $6, $7)", [username, name_full, password, points, teacher, birthday, grade], (err, res) => {
+        if(err){
+            throw err
+        } else {
+            window.location.replace("../application/index.html")
+            window.localStorage.setItem("logged_in", username)
+            window.localStorage.setItem("isTeacher", 0)
+        }
+    })
 }

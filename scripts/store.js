@@ -96,7 +96,8 @@ function checkout() {
 
           //add prizes to user's inventory
           // im not sure if this works
-          db_client.query("INSERT INTO user_inventory (Username, Items) VALUES ($1, $2)", [user, prettyItems], (err, res) => {
+
+          db_client.query("INSERT INTO user_inventory (Username, Item) VALUES ($1, $2)", [user, prettyItems], (err, res) => {
             if (err) {
               throw err;
             }
@@ -127,7 +128,6 @@ require("jquery")(document).ready(function($){
   if(cache.getItem("logged_in") == null || cache.getItem("logged_in") == "none"){
     // window.location.replace("./login.html")
     // maybe do something here later, but for now just leave it blank
-    // i dont like the idea of redirecting to login page when the user is not logged in, the shop is cool to look at even if you are not logged in
   } else {
     user = cache.getItem("logged_in");
   }

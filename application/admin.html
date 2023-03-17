@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-
         <title>FBLA 2023</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./styles/login.css "> <!-- changed the css here -->
         <link rel="stylesheet" href="./styles/default-dark.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta name="author" content="Nathan Fletcher">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
+    <body style="background-color: #45484a">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../scripts/setup.js"></script>
-        <script src="../scripts/loginManager.js"></script>
+        <script src="../scripts/admin.js"></script>
+        <script src="../scripts/loginManager.js "></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
@@ -25,38 +24,11 @@
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
             <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Admin</a>
             <input type="text" id="searchbar" name="search-bar">
+            <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
-
         <div id="divider" class="bg-#45484a">
             <br>
         </div>
-
-
-        <div class="containerr" style="text-align: center;">
-            <div class="container">
-                <div class="login">
-                    <h1 class="logo" style="color: white;">School Tracking</h1>
-                    <form class="login-form" action="#" method="POST">
-                        <input id="username" type="text" name="name" placeholder="username" autofocus="autofocus" />
-                        <input id="password" type="password" name="password" placeholder="password"/>
-
-                        <div class="container">
-                            <button type="button" id="login-button"  onclick="onLoginClick()" class="btn btn-primary border border-primary">Log In</button>
-                            <div class="container">
-                                <div class="links">
-                                    <a id="forgotpass" style="color: white" href="#">Forgot Password?</a>
-                                    <a id="new-user" style="color: white" href="./new_user.html">New User? Sign Up</a>
-                                    <div class="container">
-                                        <br><br><b><hr class="text-white"></b><br>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-   
 
         <div class="cotainer-fluid" id="footer-bounds"></div>
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
@@ -66,6 +38,26 @@
             </div>
         </div>
 
+
+        <div id="inventory-container">
+
+            <table id="invetory-table" class="table table-striped table-dark">
+            <thead class="thead-dark">
+              <tr>
+                <th>Username</th>
+                <th>Items</th>
+              </tr>
+            </thead>
+
+             <tbody id="inventory-body">
+                <!-- hopefully everything fills here -->
+            </tbody>          
+            </table>
+
+        </div>
+
+
+
         <script>
 
             const adminButton = document.getElementById('admin-button');
@@ -74,7 +66,7 @@
             document.addEventListener('DOMContentLoaded', () => {
                 const cache = require('../modules/cache')
                 const dialogue = require('../modules/dialogue')
-                const user = cache.get('user')
+                const user = cache.getItem('logged_in')
                 if (user.isTeacher >= 1) {
                   document.querySelector('.admin-button').style.display = 'block'
                 }
@@ -82,6 +74,6 @@
               
         </script>
 
-        
+
     </body>
 </html>

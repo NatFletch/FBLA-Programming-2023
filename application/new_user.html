@@ -24,6 +24,7 @@
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
             <input type="text" id="searchbar" name="search-bar">
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
+            <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Admin</a>
         </div>
         <div id="divider">
             <br>
@@ -68,5 +69,23 @@
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
             </div>
         </div>
+
+        <script>
+
+            const adminButton = document.getElementById('admin-button');
+            adminButton.style.display = 'none'; // hide the button by default
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const cache = require('../modules/cache')
+                const dialogue = require('../modules/dialogue')
+                const user = cache.get('user')
+                if (user.isTeacher >= 1) {
+                  document.querySelector('.admin-button').style.display = 'block'
+                }
+              })
+              
+        </script>
+
+        
     </body>
 </html>
