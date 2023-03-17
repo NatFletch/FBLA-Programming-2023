@@ -25,7 +25,7 @@ function update_tables(option){
 }
 
 function create_tables(){
-    db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, isTeacher int, Birthday date, Grade text)", (err, res) => {
+    db_client.query("CREATE TABLE user_profiles (Username text, FullName text, Password text, Points int, allTimePoints int, isTeacher int, Birthday date, Grade text)", (err, res) => {
         if (err) throw err
         console.log(res)
     })
