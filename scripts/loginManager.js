@@ -99,6 +99,7 @@ function logout(){
 function addUserToDatabase(username, name_full, password, points, teacher, birthday, grade){
     const db_client = require('../modules/db_client')
     const dialogue = require('../modules/dialogue')
+    console.log(username, name_full, password, points, teacher, birthday, grade)
     dialogue.alert('Successfully made account', 'success')
     db_client.query("INSERT INTO user_profiles VALUES ($1, $2, $3, $4, $5, $6, $7)", [username, name_full, password, points, teacher, birthday, grade], (err, res) => {
         if(err){
