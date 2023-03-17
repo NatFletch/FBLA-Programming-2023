@@ -13,6 +13,7 @@
     <body style="background-color: #45484a">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../scripts/setup.js"></script>
+        <script src="../scripts/admin.js"></script>
         <script src="../scripts/loginManager.js "></script>
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script src="../scripts/buttonSetup.js"></script>
@@ -65,7 +66,7 @@
             document.addEventListener('DOMContentLoaded', () => {
                 const cache = require('../modules/cache')
                 const dialogue = require('../modules/dialogue')
-                const user = cache.get('user')
+                const user = cache.getItem('logged_in')
                 if (user.isTeacher == 1) {
                   document.querySelector('.admin-button').style.display = 'block'
                 }
