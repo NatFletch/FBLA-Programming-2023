@@ -331,14 +331,22 @@ html, body {
     text-align:left;
   }
 
-  /* leadeboard table */
-  .container-table {
-    margin: 50px auto;
-    width: 85%;
-    max-width: 1500px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
   
+/* leadeboard table */
+#container-table {
+  margin: 50px auto;
+  width: 85%;
+  max-width: 1500px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* table */
+#inventory-container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
