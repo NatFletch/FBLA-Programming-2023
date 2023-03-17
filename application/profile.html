@@ -70,24 +70,6 @@
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
             </div>
-        </div>
-
-        <script>
-
-            const adminButton = document.getElementById('admin-button');
-            adminButton.style.display = 'none'; // hide the button by default
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const cache = require('../modules/cache')
-                const dialogue = require('../modules/dialogue')
-                const user = cache.get('user')
-                if (user.isTeacher >= 1) {
-                  document.querySelector('.admin-button').style.display = 'block'
-                }
-              })
-              
-        </script>
-
-        
+        </div>       
     </body>
 </html>

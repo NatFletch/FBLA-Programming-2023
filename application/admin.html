@@ -55,25 +55,5 @@
             </table>
 
         </div>
-
-
-
-        <script>
-
-            const adminButton = document.getElementById('admin-button');
-            adminButton.style.display = 'none'; // hide the button by default
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const cache = require('../modules/cache')
-                const dialogue = require('../modules/dialogue')
-                const user = cache.getItem('logged_in')
-                if (user.isTeacher >= 1) {
-                  document.querySelector('.admin-button').style.display = 'block'
-                }
-              })
-              
-        </script>
-
-
     </body>
 </html>

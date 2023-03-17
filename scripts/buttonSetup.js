@@ -8,4 +8,10 @@ require('jquery')(document).ready(function($){
         $('#login').attr("href", 'javascript:void()')
         $('#login').attr("onclick", "logout()")
     }
+
+    const adminButton = document.getElementById('admin-button');
+    if (cache.getItem("isTeacher") > 0) {
+        adminButton.style.display = 'block'
+    }
+      
 })

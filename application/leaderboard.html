@@ -15,6 +15,7 @@
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/searchQuery.js"></script>
         <script src="../scripts/loginManager.js"></script>
+        
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
@@ -31,24 +32,7 @@
             <br>
         </div>
 
-
-        <div id="leaderboard-container">
-
-            <table id="leaderboard-table" class="table table-striped table-dark">
-            <thead class="thead-dark">
-              <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Points</th>
-              </tr>
-            </thead>
-
-             <tbody id="leaderboard-body">
-                <!-- hopefully everything fills here -->
-            </tbody>          
-            </table>
-
-        </div>
+        
 
         </div>
 
@@ -59,23 +43,5 @@
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
             </div>
         </div>
-        
-        <script src="../scripts/leaderboard.js"></script>
-        
-        <script>
-
-            const adminButton = document.getElementById('admin-button');
-            adminButton.style.display = 'none'; // hide the button by default
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const cache = require('../modules/cache')
-                const dialogue = require('../modules/dialogue')
-                const user = cache.get('user')
-                if (user.isTeacher >= 1) {
-                  document.querySelector('.admin-button').style.display = 'block'
-                }
-              })
-              
-        </script>
     </body>
 </html>
