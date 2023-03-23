@@ -20,7 +20,6 @@ Coming Soon
 # TODO
 There is a lot of stuff I still need to finish up on
  - Reports at the end of each quarter
- - A store
  
  If all goes well then the next step is to:
  - Do leaderboard
