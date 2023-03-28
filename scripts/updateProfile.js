@@ -48,7 +48,7 @@ require('jquery')(document).ready(($) =>{
             grade.html("Grade: " + res.rows[0].grade)
             birthday.html("Birthday: " + res.rows[0].birthday)
             role.html("Role: " + user_role)
-            if(isTeacher > 0){
+            if(cache.getItem("isTeacher") > 0){
                 points.html("Points: " + res.rows[0].points + ' <input type="text" id="input-points"> <button class="btn btn-primary" onclick="changePoints()">Update Points</button>')
             } else {
                 points.html("Points: " + res.rows[0].points)
