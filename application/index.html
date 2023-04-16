@@ -11,14 +11,20 @@
     </head>
 
     <body>
+        <!--Load all the scripts-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/eventInteractions.js"></script>
         <script src="../scripts/loginManager.js"></script>
+
+        <!--Create a navbar-->
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
+            <!--Navbar scripts-->
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
             <script src="../scripts/loginManager.js"></script>
+
+            <!--Navbar items-->
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
@@ -28,16 +34,21 @@
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
 
+        <!--Create a divider for spacing between each item-->
         <div id="divider" class="bg-#45484a">
             <br>
         </div>
 
+        <!--Unused script for now. TODO if we qualify for nationals or when we start making this for the school-->
         <!--<script src="./showInterest.js"></script>-->
 
+        <!--===MAIN CONTENT===-->
+        <!--Loading screen for waiting on the database-->
         <div class="container text-white bg-dark rounded border border-light shadow" id="loading-text">
             <h3 id="loading-header" style="display: block;">Loading events... please hold</h3>
         </div>
 
+        <!--Sample of what an event container looks like-->
         <div class="container text-white bg-dark border border-light rounded shadow" style="text-align: center; display: none;" id="sample-event">
             <br>
             <h3 id="title">Event Title</h3>
@@ -53,6 +64,7 @@
 
         <br>
 
+        <!--Button to create a new post-->
         <div class="container">
             <button type="button" style="display: none;" id="new-post" class="btn btn-primary border border-primary" data-bs-toggle="modal" data-bs-target="#post-modal">New Post</button>
         </div>
@@ -77,7 +89,9 @@
                 </div>
               </div>
             </div>
-          </div>          
+          </div>
+
+        <!--Create a new post MODAL-->
 
         <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="post-label" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -127,9 +141,12 @@
             </div>
         </div>
 
+        <!--Footer boundaries so content doesn't go behind the footer-->
         <div class="cotainer-fluid" id="footer-bounds"></div>
+
+            <!--Actual footer class that is locked at the bottom-->
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
-                <p>Nathan Fletcher 2022-2023</p>
+                <p>Nathan Fletcher & Nolan Pestano 2022-2023</p>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE" target="_blank">License</a>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/" target="_blank">Source Code</a>
             </div>
