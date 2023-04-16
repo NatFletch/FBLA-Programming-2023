@@ -11,14 +11,19 @@
     </head>
 
     <body style="background-color: #45484a">
+        <!--Load all the scripts for this page-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/searchQuery.js"></script>
         <script src="../scripts/loginManager.js"></script>
         
+        <!--Create a topbar-->
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
+            <!--Topbar scripts-->
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
+
+            <!--Topbar elements-->
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
@@ -28,6 +33,7 @@
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
 
+        <!--Create a divider between the navbar and page content-->
         <div id="divider" class="bg-#45484a">
             <br>
         </div>
@@ -36,9 +42,12 @@
 
         </div>
 
+        <!--Define boundaries for footer so content doesn't go behind the footer-->
         <div class="cotainer-fluid" id="footer-bounds"></div>
+
+        <!--Actual footer class locked to the bottom-->
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
-                <p>Nathan Fletcher 2022-2023</p>
+                <p>Nathan Fletcher & Nolan Pestano 2022-2023</p>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
             </div>

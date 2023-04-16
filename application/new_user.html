@@ -12,12 +12,19 @@
     </head>
 
     <body>
+        <!--Load all the scripts-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/loginManager.js"></script>
+
+        <!--Create a topbar-->
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
+
+            <!--topbar scripts-->
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
+
+            <!--Topbar elements-->
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
@@ -26,14 +33,19 @@
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
             <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left; display: none">Admin</a>
         </div>
+
+        <!--Divider between page content and navbar-->
         <div id="divider">
             <br>
         </div>
 
+        <!--Box for registering a new account-->
         <h5 class="text-white text-center">Don't have an account? Register here</h5>
         <div class="d-flex justify-content-center container py-0 my-0 bg-dark text-white rounded border border-white" id="register-box" style="text-align: center;">
             <div id="vertical-center">
                 <br>
+
+                <!--All the inputs-->
                 <label for="fullname">First and last name?: </label>
                 <input type="text" id="fullname" name="desired-fullname"><br><br>
 
@@ -49,6 +61,7 @@
                 <label for="birthday">Choose Birthday: </label>
                 <input type="date" id="birthday" min="1900-01-01" max="2030-12-31" value="2023-01-01"><br><br>
 
+                <!-- Grade Selector-->
                 <select class="form-select" id="grade-sel" style="width: 250px"> <br><br>
                     <option selected>Please choose a grade</option>
                     <option value="1">Freshman</option>
@@ -57,14 +70,19 @@
                     <option value="4">Senior</option>
                 </select>
 
+                <!--Register button-->
+
                 <button class="btn btn-primary" onclick="registerClick()" type="button">Register</button><br><br>
             </div>
         </div>
            
 
+        <!--Footer boundaries so page content does not scroll behind the actual footer-->
         <div class="cotainer-fluid" id="footer-bounds"></div>
+
+        <!--Footer that is locked to the bottom. Shows the real content.-->
             <div class="container-fluid bg-secondary text-white text-center" id="footer">
-                <p>Nathan Fletcher 2022-2023</p>
+                <p>Nathan Fletcher & Nolan Pestano 2022-2023</p>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
                 <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
             </div>
