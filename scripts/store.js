@@ -4,6 +4,11 @@ let cartTotal = 0;
 /**
  * addToCart(itemId) takes in an integer field, to which it simply adds to car then calls displayCart(). Points are handled by getItemPoints.
  * 
+ *  If you want to add an item to the store, you need to add it to the switch statement in getItemPoints() and getItemName()
+ *  and then add a case to the switch statement in addToCart() that calls the function that adds the item to the cart.
+ *  Make sure you refrence it in the image in the HTML file as well. Store images in /images.
+ * 
+ * 
  * @param {integer} itemId 
  * 
  */
