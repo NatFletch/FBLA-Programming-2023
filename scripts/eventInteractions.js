@@ -118,7 +118,7 @@ function interestClicked(){
 }
 /**
  * 
- * @param { html element } 
+ * @param {*} element
  * 
  * selectPostDelete() is called when the user clicks the "Delete" button on an event
  * It removes the post from being present on the events page.

@@ -129,7 +129,7 @@ function logout(){
  * @param { string } password 
  * @param { integer } points 
  * @param { string } teacher 
- * @param { string (date) } birthday 
+ * @param { string  } birthday 
  * @param { integer } grade 
  * 
  * addUserToDatabase() is called when the user clicks the register button.
