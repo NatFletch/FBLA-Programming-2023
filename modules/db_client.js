@@ -1,5 +1,5 @@
 const { Client } = require('pg')
-const client = new Client(process.env.FBLA_23_DATABASE)
+const client = new Client('postgresql://nathan-laptop:6QukISEzsWoWJiMCkLboJQ@fbla-2023-9004.7tt.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full')
 
 client.connect()
 
