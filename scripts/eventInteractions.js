@@ -134,7 +134,7 @@ function selectPostDelete(element){
  * deletePost() is called when the user clicks the "Confirm Delete" button on the delete event dialogue
  * It removes the post from the database and then removes it from the page
  * It then alerts the user that the post was deleted
-    */
+ */
 function deletePost(id){
     require('../modules/db_client').query("DELETE FROM events WHERE Title=$1", [document.getElementById(id).querySelector("#title").innerHTML])
     document.getElementById(id).remove()
