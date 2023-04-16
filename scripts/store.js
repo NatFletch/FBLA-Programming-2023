@@ -100,6 +100,7 @@ function checkout() {
   var user;
   
   if(cache.getItem("logged_in") == null || cache.getItem("logged_in") == "none"){
+    dialogue.alert('You must be logged in to checkout!', 'error');
     window.location.replace("./login.html")
   } else {
     user = cache.getItem("logged_in");
@@ -118,7 +119,7 @@ function checkout() {
       })
 
       if (userPoints < totalCost) {
-        window.alert("Insufficient points for checkout!");
+        dialogue.alert("You don't have enough points to purchase these items!", 'error');
       } else {
         const remainingPoints = userPoints - totalCost;
         console.log(remainingPoints)
@@ -141,7 +142,7 @@ function checkout() {
           });
 
 
-          dialogue.alert("Checkout successful! Please talk to the front office to claim your prize.", 'success');
+          dialogue.alert("Checkout successful! Please talk to the front office to claim your prize. Your prizes have been logged.", 'success');
         });
       }
     } else {
