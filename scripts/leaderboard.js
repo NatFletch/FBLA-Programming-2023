@@ -1,5 +1,7 @@
-// this is a mess come back to this
-
+/**
+ * leaderboard.js is currently broken. It is supposed to display the leaderboard on the leaderboard page. 
+ * Alas, it does not work. Will tackle this issue later >:)
+ */
 const getUsersWithPoints = async() => {;
     try {
       const { rows } =  db_client.query(`

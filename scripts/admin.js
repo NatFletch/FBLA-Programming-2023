@@ -1,3 +1,6 @@
+/**
+ * admin.js contains the code for the admin page. It is used to display the user inventory. Check the comments on the file itself for more details.
+*/
 require('jquery')(document).ready(function($){
   const db_client = require('../modules/db_client')
 

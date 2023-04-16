@@ -1,4 +1,17 @@
+/**
+ * This file contains the login manager for the application.
+ * It handles the login and registration of users.
+ */
 
+
+/**
+ * registerClick() and registerClick2() are a solution to a problem with the initial registration.
+ * Initially, if the user hasn't filled out all information, upon calling registerClick(), the user would experience either a crash or some functionality would not work... blame the asynchronous nature of JavaScript.
+ * Thus, the solution was to split the function into two parts, registerClick() and registerClick2().
+ * registerClick() is called when the user clicks the register button, and it checks if the username is already taken.
+ * If it is, it calls dialogue.alert() to display a message to the user. Else, it calls registerClick2().
+ * See the documentation for registerClick2() for more information.
+ */
 function registerClick(){
     const dialogue = require('../modules/dialogue')
     const name = document.getElementById('desired-username').value
@@ -13,6 +26,14 @@ function registerClick(){
     })
 }
 
+
+/**
+ * registerClick2() is the second part of the registerClick() function.
+ * It checks if the user has filled out all the boxes, and if not, it calls dialogue.alert() to display a message to the user.
+ * It also checks if the passwords match, and if not, it calls dialogue.alert() to display a message to the user.
+ * It also checks if the username is allowed, and if not, it calls dialogue.alert() to display a message to the user.
+ * If all the checks pass, it calls addUserToDatabase() to add the user to the database.
+ */
 function registerClick2(){
     const dialogue = require('../modules/dialogue')
     const name = document.getElementById('desired-username').value
@@ -89,6 +110,11 @@ window.onload = function(){
     }
 }
 
+/**
+ * logout() is called when the user clicks the logout button.
+ * It sets the logged_in and isTeacher items in the cache to "none" and 0 respectively.
+ * It then reloads the page.
+ */
 function logout(){
     const cache = require('../modules/cache')
     cache.setItem("logged_in", "none")
@@ -96,6 +122,21 @@ function logout(){
     window.location.reload()
 }
 
+/**
+ * 
+ * @param { string } username 
+ * @param { string } name_full 
+ * @param { string } password 
+ * @param { integer } points 
+ * @param { string } teacher 
+ * @param { string (date) } birthday 
+ * @param { integer } grade 
+ * 
+ * addUserToDatabase() is called when the user clicks the register button.
+ * It adds the user to the database, given the parameters.
+ * It then calls dialogue.alert() to display a message to the user.
+ * It then redirects the user to the index page.
+ */
 function addUserToDatabase(username, name_full, password, points, teacher, birthday, grade){
     const db_client = require('../modules/db_client')
     const dialogue = require('../modules/dialogue')

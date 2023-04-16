@@ -17,6 +17,12 @@ require('jquery')(document).ready(function($){
     }
 })
 
+/**
+ * postEvent() is called when the user clicks the "Post Event" button on the events page
+ * It gets the values from the input fields and then inserts them into the database
+ * It then reloads the page
+ * Security is in place to make sure that the user is logged in as a teacher-- only teachers can post events, and that all fields are filled out.
+ */
 function postEvent(){
     const title = document.getElementById("post-title").value
     const location = document.getElementById("post-location").value
@@ -88,6 +94,11 @@ function onDeleteClick(click){
     }
 }
 
+/**
+ * interestClicked() is called when the user clicks the "Interested" button on an event
+ * It gets the value of the button and then updates the database
+ * It then updates the button to show the new value
+ */
 function interestClicked(){
     const cache = require('../modules/cache')
     const db_client = require('../modules/db_client')
@@ -105,12 +116,23 @@ function interestClicked(){
         }
     });
 }
-
+/**
+ * 
+ * @param { html element } 
+ * 
+ * selectPostDelete() is called when the user clicks the "Delete" button on an event
+ * It removes the post from being present on the events page.
+ */
 function selectPostDelete(element){
     const cache = require('../modules/cache')
     cache.setItem("selectedEvent", element.parentElement.id)
 }
 
+/**
+ * deletePost() is called when the user clicks the "Confirm Delete" button on the delete event dialogue
+ * It removes the post from the database and then removes it from the page
+ * It then alerts the user that the post was deleted
+    */
 function deletePost(id){
     require('../modules/db_client').query("DELETE FROM events WHERE Title=$1", [document.getElementById(id).querySelector("#title").innerHTML])
     document.getElementById(id).remove()

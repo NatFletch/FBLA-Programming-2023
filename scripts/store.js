@@ -1,13 +1,26 @@
 let cartItems = [];
 let cartTotal = 0;
 
+/**
+ * 
+ * @param {integer} itemId 
+ * 
+ * addToCart(itemId) takes in an integer field, to which it simply adds to car then calls displayCart(). Points are handled by getItemPoints.
+ */
 function addToCart(itemId) {
   cartItems.push(itemId);
   cartTotal += getItemPoints(itemId);
   displayCart();
 }
 
-// points for each item
+/**
+ * 
+ * @param {integer} itemId 
+ * @returns {integer}
+ * 
+ * This function refrences the itemId var that then gives the points value of the item. 
+ */
+
 function getItemPoints(itemId) {
   switch(itemId) {
     case 1:
@@ -21,6 +34,10 @@ function getItemPoints(itemId) {
   }
 }
 
+/**
+ * displayCart() is the function that dynamically updates the cart whenever a user adds an item to their cart. 
+ * Items are stored in a list called CartItemsList, which the item's name comes from getItemName()
+ */
 function displayCart() {
   let cartItemsElem = document.querySelector('.cart-items');
   let cartTotalElem = document.querySelector('.cart-total');
@@ -36,7 +53,13 @@ function displayCart() {
   console.log(cartItemsList)
 }
 
-// there is definitely a better way to do this... oh well
+/**
+ * 
+ * @param {int} itemId 
+ * @returns {string} 
+ * 
+ * getItemName(itemId) returns a string given the item's name, refrenced via itemId.
+ */
 function getItemName(itemId) {
   switch(itemId) {
     case 1:
@@ -50,15 +73,20 @@ function getItemName(itemId) {
   }
 }
 
-
+/**
+ * clearCart() is the almighty function that returns cartItems to an empty list and cartTotal to 0. 
+ */
 function clearCart() {
   cartItems = [];
   cartTotal = 0;
   displayCart();
 }
 
-
-
+/**
+ * checkout() is the function that handles the checkout process.
+ *  It checks if the user has enough points to purchase the items in their cart, first, and if not it displays so.
+ *  Else, it deducts the points from their account and adds the items to their inventory.
+ */
 function checkout() {
   const db_client = require("../modules/db_client");
   const cache = require("../modules/cache");
@@ -117,7 +145,7 @@ function checkout() {
   });
 }
 
-// test this !
+/* this is the code that runs when the page loads , gives the user their points or returns them to the login page if they are not logged in */
 require("jquery")(document).ready(function($){
   const db_client = require("../modules/db_client");
   const cache = require("../modules/cache");

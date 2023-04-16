@@ -1,3 +1,9 @@
+/**
+ * updateProfile.js is the main script that will display a user's profile. Most of it is handled under the hood by JQuery.
+ * The only realy abstraction here is the fact that some views will change depending on what roles the user has.
+ * Also if the user is not logged in, it will redirect to "/login.html".
+ */
+
 require('jquery')(document).ready(($) =>{
     //modules
     const db_client = require("../modules/db_client")
