@@ -100,8 +100,7 @@ function checkout() {
   var user;
   
   if(cache.getItem("logged_in") == null || cache.getItem("logged_in") == "none"){
-    dialogue.alert('You must be logged in to checkout!', 'error');
-    window.location.replace("./login.html")
+    dialogue.alert('You must be logged in to checkout!', 'danger');
   } else {
     user = cache.getItem("logged_in");
   }
