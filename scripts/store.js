@@ -2,10 +2,10 @@ let cartItems = [];
 let cartTotal = 0;
 
 /**
+ * addToCart(itemId) takes in an integer field, to which it simply adds to car then calls displayCart(). Points are handled by getItemPoints.
  * 
  * @param {integer} itemId 
  * 
- * addToCart(itemId) takes in an integer field, to which it simply adds to car then calls displayCart(). Points are handled by getItemPoints.
  */
 function addToCart(itemId) {
   cartItems.push(itemId);
@@ -14,11 +14,11 @@ function addToCart(itemId) {
 }
 
 /**
+ * This function refrences the itemId var that then gives the points value of the item. 
  * 
  * @param {integer} itemId 
  * @returns {integer}
  * 
- * This function refrences the itemId var that then gives the points value of the item. 
  */
 
 function getItemPoints(itemId) {

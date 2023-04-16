@@ -6,10 +6,9 @@ var needs_update = false
 var update_option = "user_profiles"
 
 /**
- * 
- * @param {string} option 
- * update_tables(option) is a function that updates the tables in the database. 
+ *  * update_tables(option) is a function that updates the tables in the database. 
  * We have three tables: user_profiles, events, and user_inventory.
+ * @param {string} option 
  */
 function update_tables(option){
     if (option == "user_profiles"){

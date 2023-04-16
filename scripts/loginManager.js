@@ -123,6 +123,11 @@ function logout(){
 }
 
 /**
+ * addUserToDatabase() is called when the user clicks the register button.
+ * It adds the user to the database, given the parameters.
+ * It then calls dialogue.alert() to display a message to the user.
+ * It then redirects the user to the index page.
+ * 
  * 
  * @param { string } username 
  * @param { string } name_full 
@@ -132,10 +137,7 @@ function logout(){
  * @param { string  } birthday 
  * @param { integer } grade 
  * 
- * addUserToDatabase() is called when the user clicks the register button.
- * It adds the user to the database, given the parameters.
- * It then calls dialogue.alert() to display a message to the user.
- * It then redirects the user to the index page.
+
  */
 function addUserToDatabase(username, name_full, password, points, teacher, birthday, grade){
     const db_client = require('../modules/db_client')

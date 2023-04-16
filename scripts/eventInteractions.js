@@ -117,11 +117,13 @@ function interestClicked(){
     });
 }
 /**
+ *  *selectPostDelete() is called when the user clicks the "Delete" button on an event
+ * It removes the post from being present on the events page.
  * 
  * @param {*} element
+ * htmlElement is the element that contains all relavent information about the event
  * 
- * selectPostDelete() is called when the user clicks the "Delete" button on an event
- * It removes the post from being present on the events page.
+
  */
 function selectPostDelete(element){
     const cache = require('../modules/cache')
