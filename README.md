@@ -1,5 +1,5 @@
 # FBLA-Programming-2023
-My programming project for the 2023 FBLA season.
+My programming project for the 2023 FBLA season. Meets all the required criteria WOOOOOOOOO
 
 See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab for info on the guidelines for this project and any constraints.
 
@@ -15,13 +15,7 @@ See https://www.fbla-pbl.org/fbla-topics/ on the "Coding And Programming" tab fo
 # Building
 Building the code is very simple. As long as all the dependencies are installed you simply type `npm run make` and it will generate an `out` folder for you. Currently supported is Squirrel for Windows. Work for MacOS `dmg` and `deb` for Debian and `rpm` is being worked on
  
-Coming Soon
-
-# TODO
-There is a lot of stuff I still need to finish up on
- - Reports at the end of each quarter
- 
- If all goes well then the next step is to:
+# Stretch Goals
  - Do leaderboard
  - User settings
  - Use cache system to load events faster
