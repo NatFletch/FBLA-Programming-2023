@@ -22,8 +22,11 @@ Building the code is very simple. As long as all the dependencies are installed 
  - Email recipts for purchases
  - QR code system for attendance at events
  - Website version
+ - React JS
+ - Another redecoration
 
-# Prejudge Day Preperations
+
+# Prejudge Day Preperations (Archive)
  - Disable dev tools
  - Generate and provide a DB link (or somehow incorporate it into the binary)
  - Download, compile, and submit a binary of the project
