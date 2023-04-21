@@ -4,6 +4,26 @@
  * Also if the user is not logged in, it will redirect to "/login.html".
  */
 
+/**
+ * 
+ * @param {string} username The username of the account to promote to teacher
+ */
+var user;
+
+function promote(){
+    const dialogue = require('../modules/dialogue')
+    const db_client = require('../modules/db_client')
+
+    db_client.query("UPDATE user_profiles SET isTeacher = 1, Grade = $1 WHERE username = $2", ['Teacher', user], (err, res) => {
+        if(!err){
+            dialogue.alert("User promoted to teacher.", "success")
+        } else {
+            throw err
+        }
+    })
+}
+
+
 require('jquery')(document).ready(($) =>{
     //modules
     const db_client = require("../modules/db_client")
@@ -19,7 +39,6 @@ require('jquery')(document).ready(($) =>{
     const items = $("#items")
 
     var user_role
-    var user;
     const url_params = new URLSearchParams(window.location.search)
     if(url_params.get('user') === null){
         user = cache.getItem("logged_in")
@@ -44,12 +63,20 @@ require('jquery')(document).ready(($) =>{
                     user_role = "Admin"
                 }
     
-                db_client.query("SELECT * FROM user_inventory WHERE Username = $1", [user], (err, res) => {
-                    if(res.rows[0] === undefined){
-                        items.html("No Items")
+                db_client.query("SELECT * FROM user_inventory WHERE Username = $1", [res.rows[0].username], (err, res2) => {
+                    if(res2.rows[0] === undefined){
+                        if(cache.getItem("isTeacher") == 2 && isTeacher == 0){
+                            items.html('No Items<br><div class="btn btn-info" onclick="promote("'+res.rows[0].username+'")" id="promote">Promote To Teacher</div>')
+                        } else {
+                            items.html("No Items")
+                        }
+                        
                     } else {
-                        console.log(res.rows[0].items)
-                        items.html("Items: " + res.rows[0].items)
+                        if(cache.getItem("isTeacher") == 2 && isTeacher == 0){
+                            items.html("Items: " + res2.rows[0].items + '<br><div class="btn btn-info" onclick="promote()" id="promote">Promote To Teacher</div>')
+                        } else {
+                            items.html("Items: " + res2.rows[0].items)
+                        }
                     }
                 })
                 username.html(res.rows[0].username)
@@ -82,12 +109,20 @@ require('jquery')(document).ready(($) =>{
                     user_role = "Admin"
                 }
     
-                db_client.query("SELECT * FROM user_inventory WHERE Username = $1", [user], (err, res) => {
-                    if(res.rows[0] === undefined){
-                        items.html("No Items")
+                db_client.query("SELECT * FROM user_inventory WHERE Username = $1", [user], (err, res2) => {
+                    if(res2.rows[0] === undefined){
+                        if(cache.getItem("isTeacher") == 2 && isTeacher == 0){
+                            items.html('No Items<br><div class="btn btn-info" onclick="promote()" id="promote">Promote To Teacher</div>')
+                        } else {
+                            items.html("No Items")
+                        }
+                        
                     } else {
-                        console.log(res.rows[0].items)
-                        items.html("Items: " + res.rows[0].items)
+                        if(cache.getItem("isTeacher") == 2 && isTeacher == 0){
+                            items.html("Items: " + res2.rows[0].items + '<br><div class="btn btn-info" onclick="promote()" id="promote">Promote To Teacher</div>')
+                        } else {
+                            items.html("Items: " + res2.rows[0].items)
+                        }
                     }
                 })
                 username.html(res.rows[0].username)
