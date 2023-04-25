@@ -1,3 +1,6 @@
+# What is this branch?
+We are now switching over to use the redwoodjs framework so this is a branch to see how things go and then if all goes well this will be merged back into the main branch.
+
 # FBLA-Programming-2023
 My programming project for the 2023 FBLA season. Meets all the required criteria WOOOOOOOOO
 
@@ -22,8 +25,3 @@ Building the code is very simple. As long as all the dependencies are installed 
  - Email recipts for purchases
  - QR code system for attendance at events
  - Website version
-
-# Prejudge Day Preperations
- - Disable dev tools
- - Generate and provide a DB link (or somehow incorporate it into the binary)
- - Download, compile, and submit a binary of the project
