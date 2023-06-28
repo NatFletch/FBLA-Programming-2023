@@ -19,8 +19,6 @@ require('jquery')(document).ready(function($){
   
     // Loop over each row in the result set and add a row to the table for each one
     res.rows.forEach(row => {
-      console.log('dsass')
-      console.log(row)
       const tr = document.createElement('tr')
   
       // Add a cell for the username

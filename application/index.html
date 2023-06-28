@@ -17,22 +17,23 @@
         <script src="../scripts/eventInteractions.js"></script>
         <script src="../scripts/loginManager.js"></script>
 
-        <!--Create a navbar-->
+        <!--Create a topbar-->
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
-            <!--Navbar scripts-->
+            <!--Topbar scripts-->
             <script src="../scripts/buttonSetup.js"></script>
             <script src="../scripts/searchQuery.js"></script>
-            <script src="../scripts/loginManager.js"></script>
 
-            <!--Navbar items-->
+            <!--Topbar elements-->
             <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
+            <a href="./help.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Help</a>
             <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left; display: none">Admin</a>
             <input type="text" id="searchbar" name="search-bar">
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
         </div>
+
 
         <!--Create a divider for spacing between each item-->
         <div id="divider" class="bg-#45484a">
@@ -127,7 +128,7 @@
                         <h6>Location *</h6>
                         <input type="text" id="post-location">
                         <h6>Time *</h6>
-                        <input type="date" id="post-time" min="2023-01-01" max="2059-12-31" value="2023-01-01">
+                        <input type="date" id="post-time" min="2023-01-01" max="2059-12-31">
                         <h6>Description</h6>
                         <textarea type="text" id="post-description" rows="4" cols="50" style="resize: none;"></textarea>
                         <h6 class="text-danger">* = required entry</h6>

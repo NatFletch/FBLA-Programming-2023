@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>FBLA 2023</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles/default-dark.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <meta name="author" content="Nathan Fletcher">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body style="background-color: #45484a">
+        <!--Load all the scripts-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="../scripts/setup.js"></script>
+        <script src="../scripts/loginManager.js "></script>
+
+        <!--Setup navbar-->
+        <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
+            <!--Navbar scripts-->
+            <script src="../scripts/buttonSetup.js"></script>
+            <script src="../scripts/searchQuery.js"></script>
+            
+            <!--Navbar items-->
+            <a href="./index.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Home</a>
+            <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
+            <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
+            <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
+            <a href="./help.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Help</a>
+            <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left; display: none">Admin</a>
+            <input type="text" id="searchbar" name="search-bar">
+            <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
+        </div>
+
+        <!--Divider for spacing between navbar and page-->
+        <div id="divider" class="bg-#45484a">
+            <br>
+        </div>
+
+        <div class="container bg-dark text-white rounded shadow border border-white text-center">
+            <h4>Help Navigating The Application</h4>
+            <h5>This application is equipped with a top navbar to efficiently be able to navigate through the program.<br>
+                By clicking through the buttons on top you will be able to see all the available features this application has to offer.<br>
+                The footer at the bottom is used to give credit to the authors, show the program's license, and show the source code.</h5>
+
+            <h5>Here is a list of all the pages offered on this application</h5>
+            <h6><ul>
+                <li><a href="./index.html">Home Page</a></li>
+                <li><a href="./profile.html">Profile Page</a></li>
+                <li><a href="./new_user.html">Register Page</a></li>
+                <li><a href="./login.html">Log in Page</a></li>
+                <li><a href="./store.html">Store Page</a></li>
+                <li><a href="./leaderboard.html">Leaderboard Page</a></li>
+                <li><a href="./help.html">Help Page</a></li>
+            </ul></h6>
+        </div>
+
+        <div id="divider" class="bg-#45484a">
+            <br>
+        </div>
+
+        <div class="container bg-dark text-white rounded shadow border border-white text-center">
+            <h4>Frequently Asked Questions</h4>
+            <h5><ul>
+                <li><a href="#1">How do I get points</a></li>
+                <li><a href="#2">How do I receive the item I purchased</a></li>
+                <li><a href="#3">How do I make an account</a></li>
+                <li><a href="#4">Can this be used without an account</a></li>
+                <li><a href="#5">How do I get higher on the leaderboard</a></li>
+                <li><a href="#6">Where are all the events listed at</a></li>
+                <li><a href="#7">I'm a teacher so how do I get a teacher account</a></li>
+                <li><a href="#8">How much does each item cost</a></li>
+                <li><a href="#9">What is this application for</a></li>
+                <li><a href="#10">Who built this application</a></li>
+            </ul></h6>
+        </div>
+
+        <div id="divider" class="bg-#45484a">
+            <br>
+        </div>
+
+        <div class="container bg-dark text-white rounded shadow border border-white text-center">
+            <h4 id="1">How do I get points?</h4>
+            <h6>To get points you must attend school functions. Points are distributed by teachers at the event</h6>
+            <br><br>
+            <h4 id="2">How do I receive the item I purchased?</h4>
+            <h6>To receive the item you purchased just wait for a bit and eventually a teacher will deliver it to you.
+                We are able to see all the invoices to efficiently hand out items
+            </h6>
+            <br><br>
+            <h4 id="3">How do I make an account?</h4>
+            <h6>Sign up by clicking the register link on the log in page</h6>
+            <br><br>
+            <h4 id="4">Can this be used without an account?</h4>
+            <h6>Unfortunately not because this is how we track each student by name and how many points they have</h6>
+            <br><br>
+            <h4 id="5">How do I get higher on the leaderboard?</h4>
+            <h6>You can simply get higher on the leaderboard by earning more points</h6>
+            <br><br>
+            <h4 id="6">Where are all the events listed at?</h4>
+            <h6>You can find all of the events on the home page of the application</h6>
+            <br><br>
+            <h4 id="7">I'm a teacher, how do I get a teacher account?</h4>
+            <h6>Simply ask a school admin to promote your account to a teacher account</h6>
+            <br><br>
+            <h4 id="8">How much does each item cost?</h4>
+            <h6>T-Shirt: 10 points, Snack Voucher: 5 points, Pen: 2 points</h6>
+            <br><br>
+            <h4 id="9">What is this application for?</h4>
+            <h6>This application is to increase student involvement at Smithville High School by awarding points to those who attend school events.
+                The points can then further be spent to win prizes or you can stock up on points to get high on the leaderboard.
+            </h6>
+            <br><br>
+            <h4 id="10">Who made this application?</h4>
+            <h6>Nathan Fletcher and Nolan Pestano who are both students at Smithville High School.</h6>
+            <br><br>
+        </div>
+
+        <div id="divider" class="bg-#45484a">
+            <br>
+        </div>
+
+        <!--Create-->
+        <div class="cotainer-fluid" id="footer-bounds"></div>
+            <div class="container-fluid bg-secondary text-white text-center" id="footer">
+                <p>Nathan Fletcher & Nolan Pestano 2022-2023</p>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -16,6 +16,7 @@
         <script src="../scripts/setup.js"></script>
         <script src="../scripts/searchQuery.js"></script>
         <script src="../scripts/loginManager.js"></script>
+        <script src="../scripts/leaderboard.js"></script>
         
         <!--Create a topbar-->
         <div id="topbar" class="container-fluid bg-dark text-white py-0 my-0">
@@ -28,6 +29,7 @@
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
+            <a href="./help.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Help</a>
             <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left; display: none">Admin</a>
             <input type="text" id="searchbar" name="search-bar">
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
@@ -38,7 +40,14 @@
             <br>
         </div>
 
-        
+        <!-- Template profile card-->
+        <div class="container bg-dark text-white shadow rounded border border-white text-center" id="profile-card">
+            <h4 id="name">#X Nathan Fletcher</h4>
+            <h6 id="grade">Senior</h6>
+            <h6 id="points">50</h6>
+        </div>
+
+        <div class="container" id="divider"><br></div>
 
         </div>
 

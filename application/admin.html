@@ -25,6 +25,7 @@
             <a href="./profile.html" id="profile" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Profile</a>
             <a href="./leaderboard.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Leaderboard</a>
             <a href="./store.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Store</a>
+            <a href="./help.html" class="btn-primary btn-secondary switch text-white" style="text-align: left;">Help</a>
             <a href="./admin.html" id="admin-button" class="btn-primary btn-secondary switch text-white" style="text-align: left; display: none">Admin</a>
             <input type="text" id="searchbar" name="search-bar">
             <a href="./login.html" id="login" class="btn-primary btn-secondary switch text-white">Log In / Register</a>
@@ -35,18 +36,9 @@
             <br>
         </div>
 
-        <div class="cotainer-fluid" id="footer-bounds"></div>
-            <div class="container-fluid bg-secondary text-white text-center" id="footer">
-                <p>Nathan Fletcher & Nolan Pestano 2022-2023</p>
-                <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
-                <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
-            </div>
-        </div>
+        <div id="container bg-dark">
 
-
-        <div id="inventory-container">
-
-            <table id="invetory-table" class="table table-striped table-dark">
+            <table id="container" class="table table-striped table-dark">
             <thead class="thead-dark">
               <tr>
                 <th>Username</th>
@@ -59,6 +51,139 @@
             </tbody>          
             </table>
 
+        </div>
+
+        <script>
+            function onClick(){
+                const value = document.querySelector("#filterSelect").value
+                const dialogue = require('../modules/dialogue')
+                const db_client = require('../modules/db_client')
+
+                switch(value){
+                    case "1":
+                        generateAlphabeticalOrder()
+                        break
+                    case "2":
+                        generateLeastAlphabeticalOrder()
+                        break
+                    case "3":
+                        generateMostPoints()
+                        break
+                    case "4":
+                        generateLeastPoints()
+                        break
+                    default:
+                        dialogue.alert("Please select a filter!", 'warning')
+                }
+            }
+
+            function generateAlphabeticalOrder(){
+                db_client.query("SELECT * FROM user_profiles ORDER BY FullName ASC", (err, res) => {
+                    if (err) {
+                        console.log("Error: " + err)
+                    } else {
+                        var listOfUsers = []
+
+                        for(row in res.rows){
+                            listOfUsers.push("<p>"+res.rows[row].fullname+":"+res.rows[row].points+"</p><br>")
+                        }
+
+                        document.querySelector("#filtered-row").innerHTML = listOfUsers.join("\n")
+                    }
+                })
+            }
+
+            function generateLeastAlphabeticalOrder(){
+                db_client.query("SELECT * FROM user_profiles ORDER BY FullName DESC", (err, res) => {
+                    if (err) {
+                        console.log("Error: " + err)
+                    } else {
+                        var listOfUsers = []
+
+                        for(row in res.rows){
+                            listOfUsers.push("<p>"+res.rows[row].fullname+":"+res.rows[row].points+"</p><br>")
+                        }
+
+                        document.querySelector("#filtered-row").innerHTML = listOfUsers.join("\n")
+                    }
+                })
+            }
+
+            function generateMostPoints(){
+                db_client.query("SELECT * FROM user_profiles ORDER BY Points DESC", (err, res) => {
+                    if (err) {
+                        console.log("Error: " + err)
+                    } else {
+                        var listOfUsers = []
+
+                        for(row in res.rows){
+                            listOfUsers.push("<p>"+res.rows[row].fullname+":"+res.rows[row].points+"</p><br>")
+                        }
+
+                        document.querySelector("#filtered-row").innerHTML = listOfUsers.join("\n")
+                    }
+                })
+            }
+
+            function generateLeastPoints(){
+                db_client.query("SELECT * FROM user_profiles ORDER BY Points ASC", (err, res) => {
+                    if (err) {
+                        console.log("Error: " + err)
+                    } else {
+                        var listOfUsers = []
+
+                        for(row in res.rows){
+                            listOfUsers.push("<p>"+res.rows[row].fullname+":"+res.rows[row].points+"</p><br>")
+                        }
+
+                        document.querySelector("#filtered-row").innerHTML = listOfUsers.join("\n")
+                    }
+                })
+            }
+
+            function rollRandomStudent(){
+                const db_client = require('../modules/db_client')
+                const dialogue = require('../modules/dialogue')
+
+                db_client.query("SELECT * FROM user_profiles", (err, res) => {
+                    if(!err){
+                        var winner = Math.floor(Math.random() * (res.rows.length - 1 + 1) + 1)
+                        dialogue.alert("Congratulations! The Winner is: " + res.rows[winner].fullname, "success")
+                    }
+                })
+            }
+        </script>
+
+        <div class="bg-dark container text-white" style="text-align: center;">
+            <h4>Insights</h4>
+            <div class="row">
+                <div class="col-5" style="text-align: center">
+                    <select id="filterSelect">
+                        <option selected>Select Through Filters!</option>
+                        <option value="1">Alphabetical Order</option>
+                        <option value="2">Reverse Alphabetical Order</option>
+                        <option value="3">Most Points</option>
+                        <option value="4">Least Points</option>
+                    </select>
+                    <div class="btn btn-primary" onclick="onClick()">Generate List</div>
+                </div>
+
+                <div class="col-5">
+                    <div class="btn btn-success" onclick="rollRandomStudent()">Roll Random Student</div>
+                </div>
+            </div>
+
+            <div class="row" id="filtered-row">
+                
+            </div>
+        </div>
+
+        <div class="cotainer-fluid" id="footer-bounds"></div>
+            <div class="container-fluid bg-secondary text-white text-center" id="footer">
+                <p>Nathan Fletcher & Nolan Pestano 2022-2023</p>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/blob/master/LICENSE">License</a>
+                <a href="https://github.com/NatFletch/FBLA-Programming-2023/">Source Code</a>
+            </div>
         </div>
     </body>
 </html>
