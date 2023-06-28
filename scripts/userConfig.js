@@ -23,4 +23,5 @@ require("jquery")(document).ready(function($) {
 function changePoints(){
     require('../modules/db_client').query("UPDATE user_profiles SET Points = $1 WHERE Username = $2", [document.getElementById("input-points").value, require('jquery')("#username").html()])
     document.getElementById("input-points").innerHTML = document.getElementById("input-points").value
+    require('../modules/dialogue').alert("Successfully updated points", "success")
 }
